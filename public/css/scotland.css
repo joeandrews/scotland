@@ -289,7 +289,7 @@ a:focus {
     .content-section {
         padding-top: 250px;
     }
-*/
+    */
     .download-section {
         padding: 100px 0;
     }
@@ -397,4 +397,15 @@ img .example {
 
 .subsection {
     text-align: center;
+}
+
+.section-icon {
+    display: block;
+    margin: auto auto;
+    max-width: 128px;
+    margin-bottom: 20px;
+}
+
+a.source {
+    text-decoration: underline;
 }
