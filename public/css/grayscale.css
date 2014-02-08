@@ -386,3 +386,7 @@ body {
 img .example {
     max-height: 50%;
 }
+
+.page-header {
+    text-align: center;
+}
