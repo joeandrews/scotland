@@ -13,7 +13,10 @@
 		"express": "latest",
 		"twit": "*",
 		"jade": "latest",
-		"connect-flash": "latest",
+		"connect": "*",
+		"connect-redis": "~1.4.6",
+		"cookie": "*",
+		"cookie-signature": "*",
 		"passport": "latest",
 		"passport-local": "latest",
 		"passport-facebook": "latest",
@@ -24,7 +27,8 @@
 		"q": "latest",
 		"lodash": "~2.4.1",
 		"moment": "~2.4.0",
-		"redis": "~0.10.0"
+		"redis": "~0.10.0",
+		"socket.io": "~0.9.16"
 	},
 	"devDependencies": {
 		"grunt-contrib-watch": "latest",

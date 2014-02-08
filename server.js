@@ -1,7 +1,6 @@
 /**
  * Module dependencies.
  */
-var express = require('express');
 
 global._ = require('lodash');
 
@@ -12,36 +11,115 @@ global._ = require('lodash');
 
 //Load configurations
 //if test env, load example file
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
-	config = require('./config/config'),
-	auth = require('./config/middlewares/authorization'),
-	app = {};
-app.dependencies = {
-	config: config,
+var voteApp;
+voteApp = {
 	twit: require('twit'),
-	express: express,
 	ShortID: require('shortid'),
 	Q: require('q'),
 	moment: require('moment'),
 	redis: require('redis')
 };
-
-
-app.api = require('./config/api.js')(app);
+voteApp.passport = require('passport');
+voteApp.signature = require("cookie-signature");
+voteApp.prefix = "s:";
+voteApp.http = require("http");
+voteApp.express = require('express');
+voteApp.app = voteApp.express();
+voteApp.server = voteApp.http.createServer(voteApp.app);
+voteApp.auth = require('./auth.js')(voteApp)
+voteApp.Session = require("connect").middleware.session.Session;
+voteApp.cookie = require("cookie");
+voteApp.RedisStore = require('connect-redis')(voteApp.express);
+voteApp.router = require("./router.js");
+voteApp.sessionStore = new voteApp.RedisStore({
+	client: voteApp.redis.createClient("6379", "127.0.0.1"),
+	port: ("6379")
+});
+voteApp.io = require('socket.io');
+voteApp.api = require('./config/api.js')(voteApp);
 //bootstrap passport config
 
-app.app = express();
-
 //express settings
-require('./config/express')(app.app, app);
+voteApp.app.configure(function() {
 
+	this.set('views', __dirname + '/views');
+	this.set('view engine', 'jade');
+	this.use(voteApp.express.bodyParser());
+	this.set('port', process.env.PORT || 8081);
+	this.use(voteApp.express.cookieParser('monkey'));
+	this.use(voteApp.express.session({
+		secret: 'monkey',
+		store: voteApp.sessionStore,
+		key: "express.sid"
+
+	}));
+	this.use(voteApp.passport.initialize());
+	this.use(voteApp.passport.session());
+	this.use(this.router);
+	this.use(voteApp.express.methodOverride());
+
+	this.use(voteApp.express.static(__dirname + '/public'));
+
+
+});
 //Bootstrap routes
-require('./config/routes')(app.app, auth, app.api);
 
 //Start the app by listening on <port>
-var port = process.env.PORT || config.port;
-app.app.listen(port);
-console.log('Express app started on port ' + port);
+var port = process.env.PORT || 8081;
+voteApp.app.listen(port);
+voteApp.server.listen(voteApp.app.get("port"));
+voteApp.io = voteApp.io.listen(voteApp.server);
+voteApp.io.configure(function() {
 
+	this.set('authorization', function(data, accept) {
+
+		voteApp.auth.validate_Session(data)
+			.then(function(session) {
+				console.log(session);
+				data.session = session;
+				accept(null, true);
+			}, function(err) {
+				accept('Error', false);
+			});
+
+	});
+
+
+});
+
+voteApp.router(voteApp);
+
+voteApp.io.sockets.on('connection', function(client) {
+
+	var hs = client.handshake;
+	var session = hs.session;
+	session.socketID = client.id;
+
+	voteApp.auth.update_Session(hs, session)
+		.then(function(d) {
+
+			if (session.passport.user) {
+				//join room
+				client.join(session.passport.user.id);
+				client.emit("welcome", session);
+
+			} else {
+
+				client.emit("welcome", session);
+				// lets do something here
+			}
+
+		}, function(e) {
+			socket.emit("nosession", {
+				err: e
+			});
+		});
+
+});
+voteApp.io.sockets.on('disconnect', function(client) {
+	console.log('DISCONNESSO!!! ');
+	voteApp.auth.end_Session(client.handshake);
+
+});
 //expose app
-exports = module.exports = app;
+exports = module.exports = voteApp;
