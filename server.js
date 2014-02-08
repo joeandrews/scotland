@@ -1,9 +1,9 @@
 /**
  * Module dependencies.
  */
-var express = require('express'),
+var express = require('express');
 
-	global._ = require('lodash');
+global._ = require('lodash');
 
 /**
  * Main application entry file.
