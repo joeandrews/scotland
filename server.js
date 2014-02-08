@@ -23,8 +23,7 @@ app.dependencies = {
 	ShortID: require('shortid'),
 	Q: require('q'),
 	moment: require('moment'),
-	redis: require('redis'),
-	fs: fs
+	redis: require('redis')
 };
 
 
