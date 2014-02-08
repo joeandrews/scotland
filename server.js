@@ -2,11 +2,8 @@
  * Module dependencies.
  */
 var express = require('express'),
-	fs = require('fs'),
-	// passport = require('passport'),
-	jade = require('jade');
 
-global._ = require('lodash');
+	global._ = require('lodash');
 
 /**
  * Main application entry file.
@@ -35,8 +32,6 @@ app.api = require('./config/api.js')(app);
 //bootstrap passport config
 
 app.app = express();
-
-app.app.use('/lib', express.static(__dirname + '/bower_components'));
 
 //express settings
 require('./config/express')(app.app, app);
