@@ -42,8 +42,6 @@ voteApp.api = require('./config/api.js')(voteApp);
 //express settings
 voteApp.app.configure(function() {
 
-	this.set('views', __dirname + '/views');
-	this.set('view engine', 'jade');
 	this.use(voteApp.express.bodyParser());
 	this.set('port', process.env.PORT || 8081);
 	this.use(voteApp.express.cookieParser('monkey'));
@@ -60,13 +58,8 @@ voteApp.app.configure(function() {
 
 	this.use(voteApp.express.static(__dirname + '/public'));
 
-
 });
-//Bootstrap routes
 
-//Start the app by listening on <port>
-var port = process.env.PORT || 8081;
-voteApp.app.listen(port);
 voteApp.server.listen(voteApp.app.get("port"));
 voteApp.io = voteApp.io.listen(voteApp.server);
 voteApp.io.configure(function() {
@@ -79,6 +72,7 @@ voteApp.io.configure(function() {
 				data.session = session;
 				accept(null, true);
 			}, function(err) {
+				console.log(err);
 				accept('Error', false);
 			});
 
@@ -97,6 +91,7 @@ voteApp.io.sockets.on('connection', function(client) {
 
 	voteApp.auth.update_Session(hs, session)
 		.then(function(d) {
+			console.log('socket.session')
 
 			if (session.passport.user) {
 				//join room
@@ -121,5 +116,3 @@ voteApp.io.sockets.on('disconnect', function(client) {
 	voteApp.auth.end_Session(client.handshake);
 
 });
-//expose app
-exports = module.exports = voteApp;
