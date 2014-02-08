@@ -1,0 +1,7 @@
+# Modules
+bower_components/
+node_modules/
+
+# Stupid Mac Files
+.DS_Store
+

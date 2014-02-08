@@ -1,0 +1,405 @@
+html{background-color:#c0c0c0}
+body{padding-top:51px}
+a{cursor:pointer;color:#333}
+.table-hover{border-color:#777;}
+.table-hover tbody tr:hover > td{background-color:#eee}
+.table-hover tbody tr td,.table-hover tbody tr th{border-color:#777;background-color:#ddd;font-size:12px}
+.table-hover .selected > td{background-color:#f77}
+.action{text-decoration:underline}
+#page-wrapper{padding-left:200px;background-color:#bbb;transition:all .4s ease 0;}
+#page-wrapper #sidebar-wrapper{position:fixed;margin-left:-200px;left:200px;width:200px;padding-top:5px;background:#ddd;height:100%;overflow-y:auto;z-index:1000;transition:all .4s ease 0}
+#page-wrapper #content-wrapper{width:100%;padding-top:15px;}
+#page-wrapper #content-wrapper .alert{margin-left:15px;margin-right:15px}
+.modalTable{height:400px;overflow:scroll}
+.listTable{padding:0 15px;}
+.listTable .modifiers{margin-bottom:15px;height:35px;}
+.listTable .modifiers tr.active{background-color:#bbb}
+.createOrModifyForm{padding:15px}
+
+#leftColumn{float:left}
+#mealList .header{margin-top:5px;text-transform:capitalize;font-weight:bold;font-size:16px;border-bottom:1px solid #555}
+#mealList .meal{height:95px;margin-top:10px;}
+#mealList .meal .thumbnail{float:left;width:80px;height:80px}
+#mealList .meal .mealInfo{float:left;padding-left:15px;width:350px;}
+#mealList .meal .mealInfo .mealName{font-weight:bold}
+#mealList .meal .controls{float:right;}
+#mealList .meal .controls button{display:block;width:35px}
+
+.zipsServed{width:250px}
+.deliveryTimeKitchen{display:inline-block;margin-right:10px}
+.deliveryTimeInput{display:inline-block;width:100px}
+
+.ordersSearch .topHalf{height:275px;width:666px;margin:0 auto;padding-top:10px}
+.ordersSearch .bottomHalf{margin-top:50px}
+
+.login{margin-left:-230px;margin-top:30px;width:460px;height:360px;padding:30px;}
+.login .loginOptions{position:relative;margin:0 auto;margin-top:25px;width:225px;text-align:center;}
+.login .loginOptions input.form-control{margin:0 auto;margin-top:7px;height:30px;width:210px;border-radius:0}
+.login .loginOptions .fbButton{width:210px;height:38px;color:#fff}
+.login .loginOptions .divider{margin:10px auto;}
+.login .loginOptions .divider .line{width:90px}
+.login .loginOptions a.forgotText{position:absolute;right:-40px;top:124px;font-size:13px;color:#8ac84e}
+.login .loginOptions .buttonContainer{margin-top:15px;}
+.login .loginOptions .buttonContainer .signupButton{width:100px;height:35px;padding-top:7px;border-radius:0}
+.login .loginOptions .errorText{width:210px;right:7px}
+
+.address-modal{margin-top:30px;margin-left:-230px;height:495px;width:460px;padding:30px 60px;}
+.address-modal .modalHeader{margin-bottom:4px}
+.address-modal .subHeader{line-height:normal}
+.address-modal .edit-address{margin-top:31px}
+.address-modal .progressBar{margin-top:25px}
+
+.auth-type-modal{margin-top:30px;margin-left:-230px;width:460px;height:400px;padding:30px 70px;}
+.auth-type-modal .modalHeader{margin-top:10px}
+.auth-type-modal .btn{border-radius:0}
+.auth-type-modal .authButtons{margin-top:30px;text-align:center;}
+.auth-type-modal .authButtons .btn{display:inline-block;margin:0 auto;width:277px;height:52px;padding-top:16px;border:none}
+.auth-type-modal .divider{margin:15px auto;}
+.auth-type-modal .divider .line{display:inline-block;margin:5px 7px;height:1px;width:115px;background-color:#bbb}
+.auth-type-modal .divider .or{display:inline-block;font-size:16px;color:#666}
+.auth-type-modal .buttonContainer{margin-top:45px;margin-left:30px;text-align:left;}
+.auth-type-modal .buttonContainer .btn{padding:7px 35px;width:126px;height:34px;background-color:#999;}
+.auth-type-modal .buttonContainer .btn:hover{background-color:#888;color:#fff}
+.auth-type-modal .progressBar{margin-top:14px}
+
+.days-time-modal{margin-top:30px;margin-left:-230px;width:460px;height:470px;padding:35px 50px 30px 50px;}
+.days-time-modal .modalHeader{margin:0 auto;width:350px}
+.days-time-modal .subHeader{margin-top:5px}
+.days-time-modal #pickDaysContainer{margin-top:22px;font-weight:bold;}
+.days-time-modal #pickDaysContainer .dayHeader{margin-left:7px}
+.days-time-modal #pickDaysContainer .edit-delivery-days{margin-top:5px}
+.days-time-modal #pickTimeContainer{margin-top:22px;font-weight:bold;}
+.days-time-modal #pickTimeContainer .timeHeader{margin-left:7px}
+.days-time-modal #pickTimeContainer .edit-delivery-time{margin-top:3px}
+.days-time-modal .buttonContainer{margin-top:20px;}
+.days-time-modal .buttonContainer .btn{height:32px;padding:6px 30px}
+.days-time-modal .progressBar{margin-top:30px}
+
+.email-modal{margin-top:30px;margin-left:-230px;width:460px;height:340px;padding:30px;}
+.email-modal #loginInfo{margin:30px auto 0 auto;width:335px}
+.email-modal input,.email-modal textarea{display:inline-block;width:170px;height:30px;border-radius:0;border-color:#999;color:#555;font-size:14px;vertical-align:top}
+.email-modal label{width:160px;padding-top:5px;text-align:left}
+.email-modal .form-group{position:relative;margin-bottom:10px;margin-left:0}
+.email-modal .buttonContainer{margin-top:30px;}
+.email-modal .buttonContainer .btn{width:115px;height:34px;padding:7px 30px}
+.email-modal .errorText{width:170px;margin-right:16px;padding:5px}
+.email-modal .progressBar{margin-top:25px}
+
+.home-modal{margin-top:40px;margin-left:-290px;width:580px;height:305px;padding:30px;padding-top:40px;}
+.home-modal .divider{margin:22px auto 27px auto;height:1px;width:460px;background-color:#000}
+.home-modal #sellingPoints{width:500px;margin-left:30px;}
+.home-modal #sellingPoints .point{display:inline-block;margin-right:10px;}
+.home-modal #sellingPoints .point .header{font-size:15px;font-family:'Roboto Slab';font-weight:bold}
+.home-modal #sellingPoints .point .body{font-size:14px;margin-top:4px;width:150px;line-height:15px}
+.home-modal .buttonContainer{margin-top:33px;}
+.home-modal .buttonContainer .btn{height:40px;width:155px;line-height:14px}
+
+.meals-per-week-modal{margin-top:30px;margin-left:-250px;width:500px;height:545px;padding:30px;}
+.meals-per-week-modal .modalHeader{font-size:25px}
+.meals-per-week-modal .subHeader{font-size:14px;text-align:center;color:#555;}
+.meals-per-week-modal .subHeader a{color:#8ac84e}
+.meals-per-week-modal .meals-per-week{margin-top:20px}
+.meals-per-week-modal .buttonContainer{margin:0 auto;width:340px;text-align:right;}
+.meals-per-week-modal .buttonContainer .veggieContainer{margin-bottom:10px;}
+.meals-per-week-modal .buttonContainer .veggieContainer .veggie{font-weight:bold;color:#333}
+.meals-per-week-modal .buttonContainer .veggieContainer .veggieCheckbox{margin-left:5px}
+.meals-per-week-modal .buttonContainer .btn{width:105px;height:35px;padding:7px 25px}
+.meals-per-week-modal .progressBar{margin-top:15px}
+
+.payment-info-modal{margin-top:30px;margin-left:-230px;width:460px;height:485px;padding:30px;}
+.payment-info-modal .subHeader{margin-top:3px;color:#333}
+.payment-info-modal .edit-payment-info{margin-top:28px}
+.payment-info-modal input{line-height:20px}
+.payment-info-modal .securityInfo{margin:0 auto;margin-top:5px;width:325px;font-size:11px;color:#666;text-align:center;}
+.payment-info-modal .securityInfo a{color:#08c}
+.payment-info-modal .progressBar{margin-top:5px}
+
+#upcomingMeals .tags{color:#79b73d;}
+#upcomingMeals .tags a{color:#79b73d}
+#upcomingMeals .tags .selected{font-weight:bold}
+#upcomingMeals #mealImageContainer{margin-top:15px;height:264px;overflow:hidden}
+#upcomingMeals .mealImage{display:inline-block;position:relative;margin:7px;height:250px;width:250px;}
+#upcomingMeals .mealImage .mealImageNameBackground,#upcomingMeals .mealImage .mealImageName{position:absolute;bottom:0;width:100%;height:30px;padding-top:5px}
+#upcomingMeals .mealImage .mealImageNameBackground{background-color:#444;opacity:.8}
+#upcomingMeals .mealImage .mealImageName{font-weight:300;font-size:14px;color:#eee}
+
+.edit-address input,.edit-address textarea{display:inline-block;width:215px;height:30px;border-radius:0;border-color:#999;color:#555;font-size:14px;vertical-align:top}
+.edit-address textarea{height:70px}
+.edit-address label{margin-right:10px;width:110px;padding-top:5px;text-align:left}
+.edit-address .instructionsLabel{margin-right:0;width:120px}
+.edit-address .unbold{font-weight:normal}
+.edit-address .form-group{position:relative;margin-bottom:10px;text-align:right}
+.edit-address .buttonContainer{margin-top:30px;}
+.edit-address .buttonContainer .btn{height:34px;padding:6px 30px}
+
+.edit-delivery-days{display:block;width:100%;text-align:center;}
+.edit-delivery-days button.btn{display:inline-block;margin:0 4px;height:36px;width:80px;padding:7px 25px;border:1px solid #bbb;border-radius:0;background-color:#fff}
+.edit-delivery-days button.btn.selected{color:#fff;border:1px solid #8ac84e;background-color:#8ac84e}
+
+.edit-delivery-time{display:block;width:100%;text-align:center;}
+.edit-delivery-time .period{margin-bottom:10px;margin-left:4px;text-align:left}
+.edit-delivery-time button.btn{display:inline-block;margin:0 4px 0 4px;padding:6px 16px;height:36px;min-width:80px;border:1px solid #bbb;border-radius:0;background-color:#fff}
+.edit-delivery-time button.btn.selected{color:#fff;border:1px solid #8ac84e;background-color:#8ac84e}
+
+.edit-payment-info{margin:0 auto;width:290px;}
+.edit-payment-info input{display:inline-block;width:170px;height:23px;border-radius:0;border-color:#999;color:#555;font-size:12px;vertical-align:top}
+.edit-payment-info .smallInput{width:83px}
+.edit-payment-info label{width:105px;text-align:left}
+.edit-payment-info .form-group{position:relative;margin-bottom:7px;margin-left:0}
+.edit-payment-info .buttonContainer{margin-top:16px;}
+.edit-payment-info .buttonContainer .btn{height:34px;padding:7px 27px}
+.edit-payment-info .errorText{width:170px;padding:5px 0;margin-right:11px;margin-top:-2px}
+.edit-payment-info .errorText.small{width:83px;margin-right:98px}
+.edit-payment-info .promoCheck{margin-top:0;width:auto}
+
+.edit-qty .tallButton{float:left;height:48px;width:33px}
+.edit-qty #qtyContainer{float:left;height:48px;width:48px;padding-top:2px;background-color:#fff;border-top:1px solid #ccc;border-bottom:1px solid #ccc;text-align:center}
+
+#mealsPerWeekContainer .longButton{display:block;margin:15px auto;padding-left:20px;height:55px;width:340px;line-height:32px;border-radius:3px;background-color:#fff;border:1px solid #ccc;text-align:left;font-weight:bold;}
+#mealsPerWeekContainer .longButton .count{font-size:14px}
+#mealsPerWeekContainer .longButton .mealPrice{width:83px;}
+#mealsPerWeekContainer .longButton .mealPrice .fullPrice{display:inline-block;width:24px;text-align:right}
+#mealsPerWeekContainer .longButton .mealPrice .discountPrice{display:inline-block;width:24px;text-align:right}
+#mealsPerWeekContainer .longButton .mealPrice .tinyMealText{float:right;margin-top:5px;width:50px;line-height:10px;font-size:10px;font-weight:normal;font-family:'Helvetica Neue',Helvetica,Arial}
+#mealsPerWeekContainer .longButton.selected{background-color:#8ac84e;border:1px solid #8ac84e}
+
+html,body{height:100%}
+h3{margin:0;font-size:24px;font-weight:300}
+.logoContainer{float:left;padding:7px 0 0 20px;}
+.logoContainer .logo{height:30px}
+.notransition{-webkit-transition:none !important;-moz-transition:none !important;-o-transition:none !important;-ms-transition:none !important;transition:none !important}
+#angularWrapper{margin:0 auto -60px;padding:0 0 60px;min-height:100%;height:auto;background:#ededed}
+.contentContainer{padding-top:25px;}
+.contentContainer .mealplanContainer,.contentContainer .settingsContainer{margin:0 auto;margin-bottom:25px;border:1px solid #bbb;border-radius:5px;background:#fff}
+.modal-content .btn{height:34px;padding:6px 30px;border-radius:2px;border:none}
+.alertContainer{position:absolute;float:left;top:5px;margin-top:65px;width:100%;text-align:center;z-index:1000;}
+.alertContainer .alertWrapper{opacity:1;transition:opacity 1s ease 0}
+.alertContainer .alert{position:relative;display:inline-block;max-width:700px;height:40px;opacity:1;padding:8px 30px 8px 15px;font-weight:300}
+.alertContainer .transparent{opacity:0}
+.alertContainer .close{position:absolute;top:7px;right:10px}
+#footer{height:60px;background-color:#c0c0c0;text-align:center;box-shadow:inset 0 3px 3px 0 rgba(0,0,0,0.4);}
+#footer .container{padding-top:20px}
+.closeBtn{position:absolute;right:0;top:0;margin-top:2px;margin-right:10px;font-size:20px;font-weight:bold;opacity:.2}
+.closeBtn:hover{text-decoration:none}
+.fbButton{background-color:#597dc1;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);border-radius:2px;}
+.fbButton:hover{background-color:#486cb0}
+.divider{margin:15px auto;}
+.divider .line{display:inline-block;margin:5px 7px;height:1px;width:115px;background-color:#bbb}
+.divider .or{display:inline-block;font-size:16px;color:#666}
+.red{color:#fe3b3a}
+.strike{text-decoration:line-through}
+body{font-family:Helvetica,Arial,sans-serif}
+body.modal-open,.modal-open .navbar-fixed-top{margin-right:0}
+a:hover{color:#333}
+input.form-control,textarea.form-control{padding:4px 6px}
+.navbar{padding-right:30px;box-shadow:0 1px 4px rgba(0,0,0,0.065);background-color:#fff;border:1px solid #d4d4d4;z-index:1031;}
+.navbar .nav{margin:0}
+.navbar .navbar-header{float:left}
+.navbar .navbar-right{float:right}
+.navbar li{float:left;font-family:'Roboto Slab';font-size:14px;font-weight:bold;padding:0 15px;}
+.navbar li a{padding:15px 0 10px 0;}
+.navbar li a:hover{background-color:initial}
+.navbar li.selected a{border-bottom:5px solid #8ac84e}
+.modal-content{padding:30px}
+.btn-success{background-color:#8ac84e;}
+.btn-success:hover{background-color:#79b73d}
+.btn-warning{background-color:#ff5831;}
+.btn-warning:hover{background-color:#ee4c13}
+.btn-inverse{color:#fff;background-color:#666;}
+.btn-inverse:hover{color:#fff;background-color:#555}
+
+.forgotPassword .modal-content{margin:0 auto;width:350px;text-align:center;}
+.forgotPassword .modal-content .subHeader{margin-top:15px}
+.forgotPassword .modal-content input{margin-top:15px;width:200px}
+.forgotPassword .modal-content .buttonContainer{margin-top:15px}
+.forgotPassword .modal-content .errorText{margin-right:74px;width:200px}
+
+#signupContainerWrapper{margin:0 auto -376px;min-height:100%;height:auto;background-image:url("../img/backgrounds/background1.jpg");background-size:cover;background-position:center}
+#push{height:376px}
+#signupContainer{overflow:hidden;position:relative;min-height:415px;padding-top:10px;transition:all 1s ease 0}
+#signupContainer.step-1{min-height:440px}
+#signupContainer.step0{min-height:415px}
+#signupContainer.step1{min-height:620px}
+#signupContainer.step2{min-height:550px}
+#signupContainer.step3{min-height:575px}
+#signupContainer.step4{min-height:480px}
+#signupContainer.step5{min-height:480px}
+#signupContainer.step6{min-height:565px}
+#upcomingMealsContainer{padding-top:5px;padding-bottom:30px;height:376px;text-align:center;background-color:#ededed;box-shadow:inset 0 3px 3px 0 rgba(0,0,0,0.4);}
+#upcomingMealsContainer #pricingMessage{margin-top:5px;font-size:24px;font-weight:300}
+#spinner{position:absolute;top:0;height:100%;width:100%;z-index:1030;background-color:#333;opacity:.8;}
+#spinner .pleaseWait{position:relative;top:50%;color:#fff;text-align:center;font-size:15px;margin-top:-20px;margin-left:3px;font-weight:300}
+#spinner #spinnerContainer{position:relative;left:50%;top:50%;margin-left:-64px;margin-top:-74px;width:128px;height:128px;-moz-transform:scale(.6);-webkit-transform:scale(.6);-ms-transform:scale(.6);-o-transform:scale(.6);transform:scale(.6);}
+#spinner #spinnerContainer .f_circleG{position:absolute;background-color:#fff;height:23px;width:23px;-moz-border-radius:12px;-moz-animation-name:f_fadeG;-moz-animation-duration:2s;-moz-animation-iteration-count:infinite;-moz-animation-direction:linear;-webkit-border-radius:12px;-webkit-animation-name:f_fadeG;-webkit-animation-duration:2s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear;-ms-border-radius:12px;-ms-animation-name:f_fadeG;-ms-animation-duration:2s;-ms-animation-iteration-count:infinite;-ms-animation-direction:linear;-o-border-radius:12px;-o-animation-name:f_fadeG;-o-animation-duration:2s;-o-animation-iteration-count:infinite;-o-animation-direction:linear;border-radius:12px;animation-name:f_fadeG;animation-duration:2s;animation-iteration-count:infinite;animation-direction:linear}
+#spinner #spinnerContainer #frotateG_01{left:0;top:52px;-moz-animation-delay:.25s;-webkit-animation-delay:.25s;-ms-animation-delay:.25s;-o-animation-delay:.25s;animation-delay:.25s}
+#spinner #spinnerContainer #frotateG_02{left:15px;top:15px;-moz-animation-delay:.5s;-webkit-animation-delay:.5s;-ms-animation-delay:.5s;-o-animation-delay:.5s;animation-delay:.5s}
+#spinner #spinnerContainer #frotateG_03{left:52px;top:0;-moz-animation-delay:.75s;-webkit-animation-delay:.75s;-ms-animation-delay:.75s;-o-animation-delay:.75s;animation-delay:.75s}
+#spinner #spinnerContainer #frotateG_04{right:15px;top:15px;-moz-animation-delay:1s;-webkit-animation-delay:1s;-ms-animation-delay:1s;-o-animation-delay:1s;animation-delay:1s}
+#spinner #spinnerContainer #frotateG_05{right:0;top:52px;-moz-animation-delay:1.25s;-webkit-animation-delay:1.25s;-ms-animation-delay:1.25s;-o-animation-delay:1.25s;animation-delay:1.25s}
+#spinner #spinnerContainer #frotateG_06{right:15px;bottom:15px;-moz-animation-delay:1.5s;-webkit-animation-delay:1.5s;-ms-animation-delay:1.5s;-o-animation-delay:1.5s;animation-delay:1.5s}
+#spinner #spinnerContainer #frotateG_07{left:52px;bottom:0;-moz-animation-delay:1.75s;-webkit-animation-delay:1.75s;-ms-animation-delay:1.75s;-o-animation-delay:1.75s;animation-delay:1.75s}
+#spinner #spinnerContainer #frotateG_08{left:15px;bottom:15px;-moz-animation-delay:2s;-webkit-animation-delay:2s;-ms-animation-delay:2s;-o-animation-delay:2s;animation-delay:2s}
+@-moz-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-webkit-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-ms-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-o-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-moz-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-webkit-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-o-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@-ms-keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}@keyframes f_fadeG{0%{background-color:#000}
+100%{background-color:#fff}
+}
+.mealplanContainer{width:768px;padding:0;color:#cfcfcf;}
+.mealplanContainer a{color:#cfcfcf}
+.mealplanContainer .promoText{padding:15px 0;color:#f00;font-weight:200;text-align:center;border-bottom:1px solid #eee;font-family:'Helvetica Neue',Helvetica,Arial}
+.cooking .mealpanMask{display:none}
+.cooking .addMealButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.cooking .addMealButton .timeRemaining{display:none !important}
+.cooking .addMealButton .disabledTimeRemaining{display:block !important}
+.cooking .addMealButton .btn:click{box-shadow:none !important}
+.cooking .editMealOrQuantityButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.cooking .editMealOrQuantityButton .timeRemaining{display:none !important}
+.cooking .editMealOrQuantityButton .disabledTimeRemaining{display:block !important}
+.cooking .editMealOrQuantityButton .btn:click{box-shadow:none !important}
+.cooking .cancelMealButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.cooking .cancelMealButton .timeRemaining{display:none !important}
+.cooking .cancelMealButton .disabledTimeRemaining{display:block !important}
+.cooking .cancelMealButton .btn:click{box-shadow:none !important}
+.pending .mealpanMask{display:none}
+.shipping .mealpanMask{display:block;background-color:#eee;position:absolute;width:475px;height:auto;margin:-15px -20px;z-index:100;bottom:30px;right:32px;border-radius:5px;border:1px solid #ddd;}
+.shipping .mealpanMask h3{margin:0;font-size:18px;text-align:center;padding:15px;line-height:30px;font-weight:400;color:#585858}
+.shipping .cancelMealButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.shipping .cancelMealButton .timeRemaining{display:none !important}
+.shipping .cancelMealButton .disabledTimeRemaining{display:block !important}
+.shipping .cancelMealButton .btn:click{box-shadow:none !important}
+.shipping .addMealButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.shipping .addMealButton .timeRemaining{display:none !important}
+.shipping .addMealButton .disabledTimeRemaining{display:block !important}
+.shipping .addMealButton .btn:click{box-shadow:none !important}
+.shipping .editMealOrQuantityButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.shipping .editMealOrQuantityButton .timeRemaining{display:none !important}
+.shipping .editMealOrQuantityButton .disabledTimeRemaining{display:block !important}
+.shipping .editMealOrQuantityButton .btn:click{box-shadow:none !important}
+.shipping .editAddressButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.shipping .editAddressButton .timeRemaining{display:none !important}
+.shipping .editAddressButton .disabledTimeRemaining{display:block !important}
+.shipping .editAddressButton .btn:click{box-shadow:none !important}
+.shipping .editScheduleButton{opacity:.65;cursor:default !important;background:#ccc !important;}
+.shipping .editScheduleButton .timeRemaining{display:none !important}
+.shipping .editScheduleButton .disabledTimeRemaining{display:block !important}
+.shipping .editScheduleButton .btn:click{box-shadow:none !important}
+.mealplan-row{position:relative;height:280px;padding:15px 20px;border-bottom:1px solid #eee;}
+.mealplan-row .enabled{color:#000}
+.mealplan-row .imageCont{display:inline-block;margin-right:7px;width:250px;height:250px;vertical-align:top}
+.mealplan-row .mealInfo{display:inline-block;width:450px;}
+.mealplan-row .mealInfo .mealDate{height:40px;}
+.mealplan-row .mealInfo .mealDate h3{line-height:30px;margin-top:0;font-family:Helvetica,Arial}
+.mealplan-row .mealInfo .mealName{margin-top:30px;font-family:'Roboto Slab',serif;font-weight:bold;font-size:15px}
+.mealplan-row .mealInfo .mealNutrition.enabled{color:#8ac84e;font-weight:300}
+.mealplan-row .mealInfo .mealButtons{position:absolute;bottom:15px;}
+.mealplan-row .mealInfo .mealButtons .disabledTimeRemaining{display:none}
+.mealplan-row .mealInfo .mealButtons .btn{display:inline-block;margin-bottom:0;height:auto;padding:6px 16px;line-height:14px;font-size:12px !important;text-align:center;vertical-align:middle;cursor:pointer;border:1px solid;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);border-radius:2px}
+.mealplan-row .mealInfo .timeRemaining{font-size:10px;font-weight:300}
+.mealplan-row .tooltip-arrow{display:none}
+.mealplan-row .tooltip.in{opacity:1}
+.mealplan-row .tooltip-inner{margin:-36px 0 0 100px;max-width:initial;background-color:#fff;border:1px solid #ddd;border-radius:4px}
+.editMealOrQuantity{text-align:center;}
+.editMealOrQuantity .modal-dialog{width:875px}
+.editMealOrQuantity .modal-content{width:875px;overflow:auto;}
+.editMealOrQuantity .modal-content .mealName{margin-top:15px;font-family:'Roboto Slab',serif;font-size:15px;font-weight:bold}
+.editMealOrQuantity .modal-content .editMeal{display:inline-block;margin:0 15px 0 0;width:265px;vertical-align:top;text-align:left;border-right:1px solid #ddd}
+.editMealOrQuantity .modal-content .editMeal:last-child{margin-right:0;width:250px;border:none}
+.editMealOrQuantity .modal-content .changeQuantityContainer{margin-bottom:20px;}
+.editMealOrQuantity .modal-content .changeQuantityContainer p{margin-top:5px;margin-bottom:1em;width:230px}
+.editMealOrQuantity .modal-content .changeQuantityContainer li{float:left;text-align:left}
+.editMealOrQuantity .modal-content .changeQuantityContainer .edit-qty{margin:0 auto;width:115px}
+.cancelMealModal .modal-content{margin:0 auto;width:340px;padding:25px;text-align:center;}
+.cancelMealModal .modal-content h3{margin-bottom:20px}
+.cancelMealModal .modal-content p{margin-bottom:25px}
+.cancelMealModal .modal-content .footer{margin-top:15px}
+
+.settingsContainer{padding:30px 40px;width:580px;}
+.settingsContainer a{color:#8ac84e;font-weight:300;font-family:Helvetica,Arial}
+.settingsContainer .header{margin-top:8px;font-size:24px;font-weight:300;line-height:20px}
+.settingsContainer .lineItem{margin-top:15px;}
+.settingsContainer .lineItem .fieldName,.settingsContainer .lineItem .value,.settingsContainer .lineItem .actionContainer{display:inline-block;vertical-align:top;font-family:'Helvetica Neue',Helvetica,Arial}
+.settingsContainer .lineItem .fieldName{margin-left:25px;width:240px;font-weight:bold}
+.settingsContainer .lineItem .value{margin-right:10px;max-width:175px;word-wrap:break-word}
+.settingsContainer .divider{margin:30px auto;height:1px;width:500px;background-color:#eee}
+.settingsContainer .tooltip.in{opacity:1}
+.settingsContainer .tooltip-inner{padding:5px;background-color:#fff;color:#333;border:1px solid #ddd;font-family:Helvetica,Arial;font-size:10px;}
+.settingsContainer .tooltip-inner .divider{margin:5px auto}
+.editNameModal .modal-content,.editEmailModal .modal-content,.editPhoneModal .modal-content{margin:0 auto;width:360px;text-align:center}
+.editPaymentInfoModal .modal-content{margin:0 auto;width:400px;text-align:center}
+.changePasswordModal .modal-content{margin:0 auto;width:380px;text-align:center}
+
+.transparentModal{position:absolute;left:50%;background-color:rgba(255,255,255,0.8);transition:left 1s ease 0,margin-left 1s ease 0;box-shadow:0 3px 7px rgba(0,0,0,0.3);opacity:1}
+.transparentModal.slideOut{left:0%}
+.transparentModal.offScreen{left:100%;margin-left:0}
+.transparentModal.invis{opacity:0}
+.home-modal.slideOut{margin-left:-580px}
+.meals-per-week-modal.slideOut{margin-left:-500px}
+.login.slideOut,.days-time-modal.slideOut,.address-modal.slideOut,.auth-type-modal.slideOut,.email-modal.slideOut,.payment-info-modal.slideOut{margin-left:-460px}
+.btn.signupButton{border-radius:2px;padding:13px;box-shadow:none;border:none}
+.modalHeader{text-align:center;font-size:24px;font-weight:300;line-height:30px}
+.subHeader{text-align:center}
+.buttonContainer{margin-top:55px;text-align:center;width:100%}
+.progressBar{text-align:center;margin-top:30px}
+.errorText{position:absolute;margin-bottom:0;right:0;width:215px;padding:5px 15px;text-align:center;color:#555;border:1px solid #999;font-size:12px;border-radius:0;z-index:1000}
+.termsModal{height:400px;overflow-y:scroll;overflow-x:hidden}
+
+.editNameModal h3,.editPhoneModal h3,.editEmailModal h3{margin-bottom:23px}
+.editNameModal input,.editPhoneModal input,.editEmailModal input{display:block;margin:0 auto;margin-bottom:25px;width:215px;height:30px;border-radius:0;border-color:#999;color:#555;font-size:12px}
+.editNameModal .buttonContainer,.editPhoneModal .buttonContainer,.editEmailModal .buttonContainer{margin-top:0}
+
+.changePasswordModal{text-align:center;}
+.changePasswordModal h3{margin-bottom:25px}
+.changePasswordModal .form-group{margin:0 auto;margin-top:10px;width:330px;}
+.changePasswordModal .form-group .passwordLabel{float:left;margin-top:3px;width:130px;text-align:left}
+.changePasswordModal .btn{margin-top:20px}
+.changePasswordModal .errorText{width:154px;margin-right:40px}
+.changePasswordModal input{width:175px;height:30px;border-radius:0;border-color:#999;color:#555;font-size:12px}
+
+.editAddressModal .modal-content{margin:0 auto;width:400px;padding:25px;text-align:center;}
+.editAddressModal .modal-content h3{margin-bottom:25px}
+.editAddressModal .modal-content .edit-address{display:inline-block}
+
+.editDeliveryDaysModal .modal-content{margin:0 auto;width:460px;text-align:center;}
+.editDeliveryDaysModal .modal-content .edit-delivery-days{margin-top:10px}
+.editDeliveryDaysModal .modal-content .buttonContainer{margin-top:20px;}
+.editDeliveryDaysModal .modal-content .buttonContainer .btn{width:auto;height:35px;padding:7px 30px}
+
+.editDeliveryTimeModal .modal-content{margin:0 auto;width:410px;text-align:center;}
+.editDeliveryTimeModal .modal-content .edit-delivery-time{display:inline-block;width:360px;margin-bottom:15px;margin-top:20px}
+
+.editPaymentInfoModal .edit-payment-info{margin-top:20px;text-align:left}
+.editPaymentInfoModal .btn{margin-top:10px}
+
+.editQtyModal{text-align:center;}
+.editQtyModal .modal-content{margin:0 auto;width:315px}
+.editQtyModal h3{margin-bottom:15px}
+.editQtyModal .edit-qty{display:inline-block;margin-top:20px}
+.editQtyModal .buttonContainer{margin-top:20px}
+
+.pauseMealplanModal .modal-content{width:480px;margin:0 auto;text-align:center;}
+.pauseMealplanModal .modal-content .subHeader{margin-top:10px}
+.pauseMealplanModal .modal-content .cancelText{margin-top:10px;font-weight:bold;font-size:12px}
+.pauseMealplanModal .modal-content .reason{margin-top:10px;width:420px}
+.pauseMealplanModal .modal-content .buttonContainer{margin-top:15px;}
+.pauseMealplanModal .modal-content .buttonContainer .btn{height:34px;padding:6px 30px;border-radius:2px;border:none}
+.pauseMealplanModal .modal-content textarea{padding:4px 6px}
+
+.reactivateMealplanModal .modal-content{margin:0 auto;width:460px;text-align:center;}
+.reactivateMealplanModal .modal-content .edit-delivery-days{margin-top:10px}
+.reactivateMealplanModal .modal-content .buttonContainer{margin-top:20px;}
+.reactivateMealplanModal .modal-content .buttonContainer .btn{width:auto;height:35px;padding:7px 30px}
+
