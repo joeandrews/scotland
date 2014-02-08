@@ -36,9 +36,8 @@ voteApp.sessionStore = new voteApp.RedisStore({
 	port: ("6379")
 });
 voteApp.io = require('socket.io');
-voteApp.api = require('./config/api.js')(voteApp);
+voteApp.api = require('./api.js')(voteApp);
 //bootstrap passport config
-
 //express settings
 voteApp.app.configure(function() {
 
@@ -91,16 +90,14 @@ voteApp.io.sockets.on('connection', function(client) {
 
 	voteApp.auth.update_Session(hs, session)
 		.then(function(d) {
-			console.log('socket.session')
-
 			if (session.passport.user) {
 				//join room
-				client.join(session.passport.user.id);
-				client.emit("welcome", session);
+				client.emit("welcomeBack", session);
 
 			} else {
-
+				client.join('users');
 				client.emit("welcome", session);
+				
 				// lets do something here
 			}
 
@@ -112,7 +109,8 @@ voteApp.io.sockets.on('connection', function(client) {
 
 });
 voteApp.io.sockets.on('disconnect', function(client) {
-	console.log('DISCONNESSO!!! ');
-	voteApp.auth.end_Session(client.handshake);
+	console.log('Disconected');
+	client.leave('users');
 
+	voteApp.auth.end_Session(client.handshake);
 });
