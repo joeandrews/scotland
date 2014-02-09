@@ -20,7 +20,7 @@ voteApp = {
 	redis: require('redis'),
 	fs:require('fs')
 };
-voteApp.clientbuild = require("./clientbuild.js");
+voteApp.clientbuild = require("./clientBuild.js");
 voteApp.passport = require('passport');
 voteApp.signature = require("cookie-signature");
 voteApp.prefix = "s:";
