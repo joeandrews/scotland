@@ -1,14 +1,4 @@
 $(function () {
-<<<<<<< HEAD
-	$(document).ready(function() {
-		Highcharts.setOptions({
-			global: {
-				useUTC: false
-			}
-		});
-		
-		createLineChart('#tweetchart');
-=======
     $(document).ready(function() {
         Highcharts.setOptions({
             global: {
@@ -47,7 +37,6 @@ $(function () {
 			
 		createLineChart('#tweetchartyes', "Yes Camp", testdatayes);
 		createLineChart('#tweetchartno', "No Camp", testdatano);
->>>>>>> aedf857e7cdb4ca72731a90c839073e94bc38249
 		createBarChart('#opinionchart');
 	});
 
@@ -67,13 +56,7 @@ function createLineChart(chartID, title, input){
 				load: function() {
 					var series = this.series[0];
 					setInterval(function() {
-<<<<<<< HEAD
-						var y = (new Date()).getTime(), // current time
-						x = Math.random();
-						series.addPoint([y, x], true, true);
-=======
 						series.setData(input, true);
->>>>>>> aedf857e7cdb4ca72731a90c839073e94bc38249
 					}, 5000);
 				}
 			}, 
@@ -130,7 +113,6 @@ function createLineChart(chartID, title, input){
 			enabled: false
 		},
 		series: [{
-<<<<<<< HEAD
 			name: 'Random data',
 			data: (function() {
 				// generate an array of random data
@@ -145,11 +127,9 @@ function createLineChart(chartID, title, input){
 					});
 				}
 				return data;
-			})()
-=======
+			})(),
 			name: 'tweets',
 			data: input
->>>>>>> aedf857e7cdb4ca72731a90c839073e94bc38249
 		}]
 	});
 }
@@ -214,18 +194,6 @@ function createBarChart(chartID){
 			enabled: false
 		},
 		series: [{
-<<<<<<< HEAD
-			name: 'No',
-			data: [52]
-		}, {
-			name: 'Undecided',
-			data: [15]
-		}, {
-			name: 'Yes',
-			data: [33]
-		}]
-	});
-=======
 				name: 'No',
 				data: [52]
 			}, {
@@ -236,5 +204,4 @@ function createBarChart(chartID){
 				data: [33]
 			}]
 		});
->>>>>>> aedf857e7cdb4ca72731a90c839073e94bc38249
 }
