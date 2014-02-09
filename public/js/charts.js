@@ -70,7 +70,12 @@ function createLineChart(chartID){
 		},
 		plotOptions: {
 			series: {
-				color: '#FFFFFF'
+				color: '#FFFFFF',				
+                groupPadding: 5, 
+				dataLabels: {
+                    enabled: true,
+                    inside: true,
+				}
 			}
 		},
 		tooltip: {
