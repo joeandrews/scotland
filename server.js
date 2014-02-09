@@ -46,7 +46,7 @@ voteApp.clientbuild(true); // compile the dust templates
 voteApp.app.configure(function() {
 
 	this.use(voteApp.express.bodyParser());
-	this.set('port', process.env.PORT || 8081);
+	this.set('port', process.env.PORT || 8000);
 	this.use(voteApp.express.cookieParser('monkey'));
 	this.use(voteApp.express.session({
 		secret: 'monkey',
@@ -144,7 +144,7 @@ voteApp.io.sockets.on('connection', function(client) {
 					}, function(err) {
 						console.log(err);
 					});
-				},3000);
+				},30000);
 			})
 			
 			client.on('addComment',function(data){
