@@ -35,9 +35,12 @@
     {
         $(".fact").hide();
   //toggle the component with class msg_body
-  $(".subsection").click(function()
-  {
+  $(".subsection").click(function(){
     $(this).nextAll().slice(0, 2).slideToggle(500);
+});
+  $(".btn-group > .btn").click(function(){
+    $(".btn-group > .btn").removeClass("active");
+    $(this).addClass("active");
 });
 });
     </script>
@@ -46,7 +49,7 @@
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-42735744-4', 'scottishreferendum.info');
   ga('send', 'pageview');
   </script>
@@ -117,16 +120,17 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">
-                         <div class="chart" id="tweetchart"><div>
+                           <div class="chart" id="tweetchart"><div>
+                           </h1>
+                           <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
+                           <div class="page-scroll">
+                            <h1 class="chart-container">
+                             <div class="chart" id="tweetchartyes"></div>
+                             <div class="chart" id="tweetchartno"></div>
+                             <div class="chart" id="opinionchart"></div>
                          </h1>
                          <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
                          <div class="page-scroll">
-                        <h1 class="chart-container">
-							<div class="chart" id="tweetchart"></div>
-							<div class="chart" id="opinionchart"></div>
-						</h1>
-                        <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
-                        <div class="page-scroll">
                             <a href="#defence" class="btn btn-circle">
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
@@ -171,7 +175,6 @@
                 <h1 class="page-header">Social Policy
                 </h1>
                 <img src="img/social.png"/ class="section-icon">
-
             </div>
 
         </div>
@@ -181,8 +184,8 @@
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>Yes</h3>
-
-                <p>Scottish government have pledged to reverse key aspects of the Welfare Reform Act 2012</p>
+                <p>Scottish Government have pledged to abolish the bedroom tax and Universal Credit.</p>
+                <p>(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
@@ -254,6 +257,24 @@
         </div>
 
         <div class="row">
+            <h3 class="subsection">Welfare <i class="fa fa-toggle-down"></i></h3>
+
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>Yes</h3>
+
+                <p>Scottish government have pledged to reverse key aspects of the Welfare Reform Act 2012</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>No</h3>
+
+                <p>Scotland gets more benefits spend per head than the rest of the UK and there is no plan to guarentee benefit payments after independence.</p>
+                <p>(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
+            </div>
+
+        </div>
+
+        <div class="row">
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>Yes</h3>
@@ -286,8 +307,9 @@
             <div class="col-lg-6 col-md-6 portfolio-item fact">
 
                 <h3>Yes</h3>
+                <p>Remaining with British Sterling is viewed as the best option.</p>
+                <p>(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
@@ -302,32 +324,67 @@
 
         <hr>
 
-        <hr>
+        <div class="submit-fact">
+            <h3>Add your reason</h3>
+            <div class="btn-group btn-group-lg">
+              <button type="button" class="btn btn-default">Yes</button>
+              <button type="button" class="btn btn-default">No</button>
+          </div>
+          <div class="input-group">
+            <textarea type="text" rows="4" class="form-control"></textarea>
+        </div>
+        <div class="btn-group btn-group-lg">
+            <button type="button" class="btn btn-default" style="margin-top: 18px;">Submit!</button>
+        </div>
 
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Company 2013</p>
-                </div>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 portfolio-item user-fact">
+
+                <h3>Yes</h3>
+                <div class="user-score">50</div><p>Remaining with British Sterling is viewed as the best option.</p>
+                <p>(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
+
             </div>
-        </footer>
+
+            <div class="col-lg-6 col-md-6 portfolio-item user-fact">
+
+                <h3>No</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+
+        </div>
 
     </div>
 
-    <!-- Core JavaScript Files -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <hr>
 
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Company 2013</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/scotland.js"></script>
+</div>
 
-    <!-- Chart library -->			
-    <script src="js/charts.js"></script>
+<!-- Core JavaScript Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/scotland.js"></script>
+
+<!-- Chart library -->			
+<script src="js/charts.js"></script>
 
 </body>
 
