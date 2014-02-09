@@ -22,6 +22,21 @@
     <link href="css/charts.css" rel="stylesheet">
     <link id="favicon" rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script language="javascript" type="text/javascript">
+
+    $(document).ready(function() 
+    {
+        $(".fact").hide();
+  //toggle the component with class msg_body
+  $(".subsection").click(function()
+  {
+    $(this).next(".fact").slideToggle(500);
+});
+});
+    </script>
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -103,12 +118,12 @@
             <h3 class="subsection">Nuclear Weapons</h3>
             <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-
+                <h3>Yes</h3>
                 <p>Removing nuclear weapons and maintaining defence forces appropriate to Scotland's circumstances could save a significant proportion of the defense budget.</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
-
+                <h3>No</h3>
                 <p>Scotland would be "safer" within the UK, and that defence jobs would be lost in Scotland if Trident was removed.</p>
             </div>
 
@@ -128,12 +143,14 @@
         <div class="row">
             <h3 class="subsection">Welfare</h3>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>Yes</h3>
 
                 <p>Scottish government have pledged to reverse key aspects of the Welfare Reform Act 2012</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>No</h3>
 
                 <p>Scotland gets more benefits spend per head than the rest of the UK and there is no plan to guarentee benefit payments after independence.</p>
                 <p>(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
@@ -143,17 +160,17 @@
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-five">Project Five</a>
-                </h3>
+                <h3>Yes</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-six">Project Six</a>
-                </h3>
+                <h3>No</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
@@ -173,17 +190,17 @@
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-one">Project One</a>
-                </h3>
+                <h3>Yes</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-two">Project Two</a>
-                </h3>
+                <h3>No</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
@@ -202,17 +219,16 @@
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>Yes</h3>
 
-                <h3><a href="#project-one">Project One</a>
-                </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-two">Project Two</a>
-                </h3>
+                <h3>No</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
@@ -231,17 +247,17 @@
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-one">Project One</a>
-                </h3>
+                <h3>Yes</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-two">Project Two</a>
-                </h3>
+                <h3>No</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
