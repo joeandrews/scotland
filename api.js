@@ -101,22 +101,34 @@ module.exports = function(voteApp) {
 			switch(data.type){
 				case 'up':{
 					var deferred = Q.defer();
-			var script = fs.readFileSync(__dirname + 'lua/voteComment.lua', 'utf8');
-			var patterns = [script, '0'];
-			var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
-			var comment = this.createComment(data);
-			patterns.push('comments:'+comment.type);
-			patterns.push('comment:'+comment.id);
-			patterns.push(JSON.stringify(comment));
-			redisEval(patterns).then(function(values) {
-				deferred.resolve(values);
-			}, function(err) {
-				console.log(err);
-				deferred.reject(err);
-			});
+					var script = fs.readFileSync(__dirname + 'lua/voteCommentUp.lua', 'utf8');
+					var patterns = [script, '0'];
+					var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
+					patterns.push('comments:'+data.type);
+					patterns.push('comment:'+data.id);
+					patterns.push(JSON.stringify(comment));
+					redisEval(patterns).then(function(values) {
+						deferred.resolve(values);
+					}, function(err) {
+						console.log(err);
+						deferred.reject(err);
+					});
 					break;
 				}
 				case 'down':{
+					var deferred = Q.defer();
+					var script = fs.readFileSync(__dirname + 'lua/voteCommentDown.lua', 'utf8');
+					var patterns = [script, '0'];
+					var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
+					patterns.push('comment:'+data.id);
+					patterns.push('comments:against');
+					patterns.push(JSON.stringify(comment));
+					redisEval(patterns).then(function(values) {
+						deferred.resolve(values);
+					}, function(err) {
+						console.log(err);
+						deferred.reject(err);
+					});
 					break;
 				}
 			}
