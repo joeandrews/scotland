@@ -231,15 +231,39 @@ module.exports = function(voteApp) {
 			});
 			return deferred.promise;
 		},
+		updateTweets: function(data) {
+			voteApp.connection.query('CALL proc_tweet_count()',function(){});
+		},
 		getTweets: function(data) {
 			var deferred = Q.defer();
-			voteApp.connection.query('SELECT tweet_count_for, tweet_count_against ' + 
+			voteApp.connection.query('SELECT DATE_FORMAT(time,'+'\'%r\''+') AS time, tweet_count_for, tweet_count_against ' + 
  				  		  			 'FROM tweet_count ' +
  				          			 'ORDER BY time ASC ' +
  				         			 'LIMIT 100',
- 				function(tweets){
-					deferred.resolve(tweets);
-			})
+ 				function(err,tweets){
+ 					var arr = [];
+ 					var arr_yes = [];
+ 					var arr_no = [];
+ 					//console.log(tweets[0]);
+ 					for(var i = 0; i<tweets.length; i++){	
+ 						var time = tweets[i].time;
+ 						var votes_for = tweets[i].tweet_count_for;
+ 						var votes_against = tweets[i].tweet_count_against;
+ 						var obj_yes = new Object();
+ 						obj_yes['x'] = time;
+ 						obj_yes['y'] = votes_for;
+ 						var obj_no = new Object();
+ 						obj_no['x'] = time;
+ 						obj_no['y'] = votes_against;
+ 						arr_yes.push(obj_yes);
+ 						arr_no.push(obj_no); 						
+ 					};
+ 					arr.push(arr_yes);
+ 					arr.push(arr_no);
+ 					console.log(arr); 
+ 					
+					deferred.resolve(arr);
+			});	
 			return deferred.promise;
 		}
 	};

@@ -149,13 +149,15 @@ voteApp.io.sockets.on('connection', function(client) {
 
 
 voteApp.connection = voteApp.mysql.createConnection({
-	host: 'chefler-production.cqqn3w4c1qml.us-west-2.rds.amazonaws.com',
-	user: 'root',
+	host: 'hackathon.cpf6bi3ieitx.us-west-2.rds.amazonaws.com',
+	user: 'stewart',
 	password: 'chefler13',
 	database: 'hackathon'
 });
 voteApp.connection.connect(function() {
 	console.log('connected');
+	voteApp.api.getTweets();
+	setInterval(function(){ voteApp.api.updateTweets() },60000);
 });
 // voteApp.tweets = require('./tweets.js')(voteApp)
 voteApp.io.sockets.on('disconnect', function(client) {
