@@ -109,7 +109,7 @@ module.exports = function(voteApp) {
 		},
 		getLatestComments:function(){
 			var deferred = Q.defer();
-			var script = fs.readFileSync(__dirname + '/lua/getLatest.lua', 'utf8');
+			var script = fs.readFileSync(__dirname + '/lua/getTopComments.lua', 'utf8');
 				var patterns = [script, '0'];
 				var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 				redisEval(patterns).then(function(values) {
@@ -164,7 +164,7 @@ module.exports = function(voteApp) {
 		},
 		addUser: function(data) {
 			var deferred = Q.defer();
-			Q.ninvoke(voteApp.client, 'ssad', 'users', data.sessionID).then(function(res) {
+			Q.ninvoke(voteApp.client, 'sadd', 'users', data.session.id).then(function(res) {
 				voteApp.pub.publish('users:new', "NEW");
 				deferred.resolve(res);
 			}, function(err) {
@@ -174,9 +174,10 @@ module.exports = function(voteApp) {
 		},
 		vote: function(data) {
 			var deferred = Q.defer();
-
-			Q.ninvoke(voteApp.client, 'ssad', 'users:' + data.vote, data.sessionID).then(function(res) {
+			console.log('in function', data);
+			Q.ninvoke(voteApp.client, 'sadd', 'users:' + data.vote, data.session.id).then(function(res) {
 				voteApp.pub.publish('users:' + data.vote, "NEW");
+				console.log('voted!!!');
 				deferred.resolve(res);
 			}, function(err) {
 				deferred.reject(err);

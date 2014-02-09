@@ -71,7 +71,7 @@ voteApp.io.configure(function() {
 
 		voteApp.auth.validate_Session(data)
 			.then(function(session) {
-				console.log(session);
+				console.log('auth',session);
 				data.session = session;
 				accept(null, true);
 			}, function(err) {
@@ -87,33 +87,58 @@ voteApp.io.configure(function() {
 voteApp.router(voteApp);
 
 voteApp.io.sockets.on('connection', function(client) {
-
 	var hs = client.handshake;
 	var session = hs.session;
 	session.socketID = client.id;
 
 	voteApp.auth.update_Session(hs, session)
 		.then(function(d) {
-			console.log(d);
-			if (!session.passport) client.join('users');
-			var count = {};
-			voteApp.api.forCount().then(function(f) {
-				count.forCount = f;
-				return voteApp.api.againstCount();
-			}).then(function(a) {
-				count.againstCount = a;
-				return voteApp.api.userCount();
+			
+			voteApp.api.addUser({session:session}).then(function(){
+				if (!session.passport) client.join('users');
+				var count = {};
+				voteApp.api.forCount().then(function(f) {
+					count.forCount = f;
+					return voteApp.api.againstCount();
+				}).then(function(a) {
+					count.againstCount = a;
+					return voteApp.api.userCount();
+				}).then(function(u){
+					count.userCount = u;
+					return voteApp.api.getTimeComments();
+				}).then(function(tc) {
+					count.timeComments = tc;
+					return voteApp.api.getLatestComments();
+				}).then(function(lc){
+					count.popComments = lc;
+					client.emit('welcome',count);
+				}, function(err) {
+					console.log(err);
+				});
+			})
+			
+			client.on('addComment',function(data){
+				console.log(data);
+				voteApp.api.addComment(data).then(function(d){
+					console.log(d);
+				},function(err){
 
-			}).then(function(u){
-				count.userCount = u;
-				return voteApp.api.getComments()
-			}).then(function(u) {
-				count.comments = u;
-				client.emit("welcome", count);
-			}, function(err) {
+				});
+			});
+			client.on('voteComment',function(data){
+				voteApp.api.voteComment(data).then(function(d){
+				},function(err){
+					console.log(err);
+				});
+			});
+		client.on('vote',function(data){
+			data.session = session;
+			voteApp.api.vote(data).then(function(d){
+				console.log(d);
+			},function(err){
 				console.log(err);
 			});
-
+		});
 		}, function(e) {
 			socket.emit("nosession", {
 				err: e
@@ -121,22 +146,7 @@ voteApp.io.sockets.on('connection', function(client) {
 		});
 
 });
-voteApp.io.sockets.on('addComment',function(data){
-	console.log(data);
-	voteApp.api.addComment(data).then(function(d){
-		console.log(d);
-	},function(err){
 
-	});
-});
-voteApp.io.sockets.on('voteComment',function(data){
-	console.log(data);
-	voteApp.api.voteComment(data).then(function(d){
-		console.log(d);
-	},function(err){
-		console.log(err);
-	});
-});
 
 voteApp.connection = voteApp.mysql.createConnection({
 	host: 'chefler-production.cqqn3w4c1qml.us-west-2.rds.amazonaws.com',

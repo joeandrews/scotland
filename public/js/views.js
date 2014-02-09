@@ -11,11 +11,26 @@ window.voteAppViews = {
 			this.render();
 		},
 		render: function() {
-			dust.render('votes', this.model.attributes, function(err, out) {
-				this.$el.html(out);
+			var schema = [];
+			schema.push({
+				name:'No',
+				data:[this.model.attributes.againstCount]
+			});
+			schema.push({
+				name:'Yes',
+				data:[this.model.attributes.forCount]
+			});
+			schema.push({
+				name:'Undecided',
+				data:[this.model.attributes.userCount - this.model.attributes.forCount -this.model.attributes.againstCount]
+			});
+			$('#opinionchart').html('');
+			createBarChart('#opinionchart',schema);
+			// dust.render('votes', this.model.attributes, function(err, out) {
+			// 	this.$el.html(out);
 
 
-			}.bind(this));
+			// }.bind(this));
 
 
 			return this;

@@ -37,7 +37,6 @@ $(function () {
 			
 		createLineChart('#tweetchartyes', "Yes Camp", testdatayes);
 		createLineChart('#tweetchartno', "No Camp", testdatano);
-		createBarChart('#opinionchart');
 	});
 
 });
@@ -135,6 +134,7 @@ function createLineChart(chartID, title, input){
 }
 
 function createBarChart(chartID, input){    
+	console.log(input);
 	$(chartID).highcharts({
 		chart: {
 			type: 'bar',
@@ -143,9 +143,6 @@ function createBarChart(chartID, input){
 			events: {
 				load: function() {
 					var series = this.series[0];
-					setInterval(function() {
-						series.setData(input, true);
-					}, 5000);
 				}
 			}, 
 		},
@@ -160,7 +157,15 @@ function createBarChart(chartID, input){
 			labels: {
 				enabled: false
 			},			
-			gridLineColor: 'transparent'
+			gridLineColor: 'transparent', 
+			lineWidth: 0,
+			minorGridLineWidth: 0,
+			lineColor: 'transparent',
+			labels: {
+			   enabled: false
+			},
+			minorTickLength: 0,
+			tickLength: 0
 		},
 		yAxis: {
 			min: 0,
