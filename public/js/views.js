@@ -51,5 +51,33 @@ window.voteAppViews = {
 		}
 
 
+	}),
+	'comment':Backbone.View.extend({
+		tagName: "li",
+		className: "comment",
+		initialize: function(options) {
+
+			this.el = options.el;
+			
+			this.socket = options.socket;
+			this.render();
+		},
+		render: function() {
+			
+			dust.render('comment', this.model.attributes, function(err, out) {
+				this.$el.html(out);
+
+
+			}.bind(this));
+
+
+			return this;
+		},
+		events:{
+			"click .up" :"voteUp",
+			"click .down" :"voteDown"
+		}
+
+
 	})
 };

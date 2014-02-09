@@ -8,6 +8,7 @@
 		"public/js/views.js",
     "public/js/votes.js",
 		"public/js/models.js",
+    "public/js/collections.js",
 		"public/js/main.js"
 	],
 	"target": "public/js/voteApp.min.js"

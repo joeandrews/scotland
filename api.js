@@ -81,9 +81,12 @@ module.exports = function(voteApp) {
 			var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 			var comment = this.createComment(data);
 			patterns.push('comments:'+comment.type);
+			patterns.push('comments:'+comment.type+':time')
 			patterns.push('comment:'+comment.id);
 			patterns.push(JSON.stringify(comment));
+
 			redisEval(patterns).then(function(values) {
+
 				deferred.resolve(values);
 			}, function(err) {
 				console.log(err);
@@ -99,6 +102,14 @@ module.exports = function(voteApp) {
 				var patterns = [script, '0'];
 				var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 				redisEval(patterns).then(function(values) {
+					for (var i = 0; i < values[0].length; i++) {
+						values[0][i] = JSON.parse(values[0][i]);
+
+					};
+					for (var i = 0; i < values[1].length; i++) {
+						values[1][i] = JSON.parse(values[1][i]);
+
+					};
 					deferred.resolve(values);
 				}, function(err) {
 					console.log(err);
@@ -113,6 +124,14 @@ module.exports = function(voteApp) {
 				var patterns = [script, '0'];
 				var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 				redisEval(patterns).then(function(values) {
+					for (var i = 0; i < values[0].length; i++) {
+						values[0][i] = JSON.parse(values[0][i]);
+
+					};
+					for (var i = 0; i < values[1].length; i++) {
+						values[1][i] = JSON.parse(values[1][i]);
+
+					};
 					deferred.resolve(values);
 				}, function(err) {
 					console.log(err);

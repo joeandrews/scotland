@@ -14,7 +14,7 @@ global._ = require('lodash');
 var voteApp;
 voteApp = {
 	twit: require('twit'),
-	ShortID: require('shortid'),
+	ShortId: require('shortid'),
 	Q: require('q'),
 	moment: require('moment'),
 	redis: require('redis'),

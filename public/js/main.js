@@ -1,6 +1,8 @@
 var views = {}
 var models = {};
-var socket = function() {
+var collections = {};
+var comment = {};
+window.socket = function() {
 
 	var socket = io.connect('http://localhost:8081');
 	socket.on("welcome", function(data) {
@@ -12,6 +14,8 @@ var socket = function() {
          socket:this,
 		 model: models.userCount
 		});
+        collections.forComments = new window.voteAppCollections.forComments(data.popComments[1]);
+        collections.againstComments = new window.voteAppCollections.againstComments(data.popComments[1]);
 
 	});
     socket.on('votes',function(data){
@@ -23,7 +27,7 @@ var socket = function() {
 }
 
 $(document).ready(function(){
-    socket = socket();
+    window.socket = window.socket();
     $('#yesVote').click(function(){
         socket.emit('vote',{
             vote:'for'
@@ -33,5 +37,17 @@ $(document).ready(function(){
         socket.emit('vote',{
             vote:'against'
         })
+    });
+
+    $('#yesComment').click(function(){
+        comment.type = 'for';
+    });
+     $('#noComment').click(function(){
+       comment.type = 'against';
+    });
+    $('#addComment').click(function(){
+        var data = comment;
+        comment.text = $('#commentText').val();
+        socket.emit('addComment',data)
     });
 });
