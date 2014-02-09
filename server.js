@@ -17,7 +17,8 @@ voteApp = {
 	ShortID: require('shortid'),
 	Q: require('q'),
 	moment: require('moment'),
-	redis: require('redis')
+	redis: require('redis'),
+	fs:require('fs')
 };
 voteApp.clientbuild = require("./clientbuild.js");
 voteApp.passport = require('passport');
@@ -105,7 +106,7 @@ voteApp.io.sockets.on('connection', function(client) {
 
 			}).then(function(u){
 				count.userCount = u;
-				return voteApp.api.getComments(data)
+				return voteApp.api.getComments()
 			}).then(function(u) {
 				count.comments = u;
 				client.emit("welcome", count);
@@ -120,7 +121,7 @@ voteApp.io.sockets.on('connection', function(client) {
 		});
 
 });
-voteApp.sockets.on('addComment',function(data){
+voteApp.io.sockets.on('addComment',function(data){
 	console.log(data);
 	voteApp.api.addComment(data).then(function(d){
 		console.log(d);
@@ -128,7 +129,7 @@ voteApp.sockets.on('addComment',function(data){
 
 	});
 });
-voteApp.sockets.on('voteComment',function(data){
+voteApp.io.sockets.on('voteComment',function(data){
 	console.log(data);
 	voteApp.api.voteComment(data).then(function(d){
 		console.log(d);

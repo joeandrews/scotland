@@ -3,6 +3,7 @@
 module.exports = function(voteApp) {
 	
 	var Q = voteApp.Q,
+		fs = voteApp.fs,
 		api;
 	voteApp.sub = voteApp.redis.createClient("6379", "127.0.0.1", {
 		parser: 'javascript'
@@ -75,9 +76,9 @@ module.exports = function(voteApp) {
 		// need to add remove functionality for users.
 		addComment:function(data){
 			var deferred = Q.defer();
-			var script = fs.readFileSync(__dirname + 'lua/addComment.lua', 'utf8');
+			var script = fs.readFileSync(__dirname + '/lua/addComment.lua', 'utf8');
 			var patterns = [script, '0'];
-			var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
+			var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 			var comment = this.createComment(data);
 			patterns.push('comments:'+comment.type);
 			patterns.push('comment:'+comment.id);
@@ -94,10 +95,9 @@ module.exports = function(voteApp) {
 		},
 		getComments:function(){
 			var deferred = Q.defer();
-			var script = fs.readFileSync(__dirname + 'lua/getComments.lua', 'utf8');
+			var script = fs.readFileSync(__dirname + '/lua/getComments.lua', 'utf8');
 				var patterns = [script, '0'];
-				var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
-				
+				var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 				redisEval(patterns).then(function(values) {
 					deferred.resolve(values);
 				}, function(err) {
@@ -111,10 +111,9 @@ module.exports = function(voteApp) {
 			var deferred = Q.defer();
 			switch(data.vote){
 				case 'up':{
-					var script = fs.readFileSync(__dirname + 'lua/voteCommentUp.lua', 'utf8');
+					var script = fs.readFileSync(__dirname + '/lua/voteCommentUp.lua', 'utf8');
 					var patterns = [script, '0'];
-					var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
-					patterns.push('comment:'+data.id+':up');
+					var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);					patterns.push('comment:'+data.id+':up');
 					patterns.push('comments:'+data.type);
 					patterns.push('comment:'+data.id);
 					patterns.push('comment:'+data.user);
@@ -128,9 +127,9 @@ module.exports = function(voteApp) {
 				}
 				case 'down':{
 
-					var script = fs.readFileSync(__dirname + 'lua/voteCommentDown.lua', 'utf8');
+					var script = fs.readFileSync(__dirname + '/lua/voteCommentDown.lua', 'utf8');
 					var patterns = [script, '0'];
-					var redisEval = Q.nbind(Jobs.client.eval, Jobs.client);
+					var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 					patterns.push('comment:'+data.id+':down');
 					patterns.push('comments:'+data.type);
 					patterns.push('comment:'+data.id);
