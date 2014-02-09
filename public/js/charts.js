@@ -96,7 +96,8 @@ function createLineChart(chartID, title, input){
 		},
 		plotOptions: {
 			series: {
-				color: '#FFFFFF'
+				color: '#FFFFFF',
+				marker: {radius:0}
 			}
 		},
 		tooltip: {

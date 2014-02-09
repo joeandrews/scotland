@@ -476,3 +476,7 @@ img .example {
 .yes-latest {
     display: none;
 }
+
+.big-vote {
+    margin-top: 50px;
+}
