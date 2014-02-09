@@ -61,7 +61,7 @@ function createLineChart(chartID, title, input){
 				}
 			}, 
 			backgroundColor: 'transparent',
-			width: 400,
+			width: 350,
 			height:200,
 		},
 		title: {
