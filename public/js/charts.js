@@ -38,8 +38,8 @@ $(function () {
 		createLineChart('#tweetchartyes', "Yes Camp", testdatayes);
 		createLineChart('#tweetchartno', "No Camp", testdatano);
 		createBarChart('#opinionchart');
-    });
-    
+	});
+
 });
 
 function createLineChart(chartID, title, input){    
@@ -73,11 +73,11 @@ function createLineChart(chartID, title, input){
 		xAxis: {
 			type: 'datetime',
 			tickPixelInterval: 150,	
-            labels: {
-                style: {
-                    color: '#FFFFFF'
-                }
-            }
+			labels: {
+				style: {
+					color: '#FFFFFF'
+				}
+			}
 		},
 		yAxis: {
 			gridLineColor: '#FFFFFF',
@@ -88,11 +88,11 @@ function createLineChart(chartID, title, input){
 					color: '#FFFFFF',
 				}
 			},	
-            labels: {
-                style: {
-                    color: '#FFFFFF'
-                }
-            }
+			labels: {
+				style: {
+					color: '#FFFFFF'
+				}
+			}
 		},
 		plotOptions: {
 			series: {
@@ -101,9 +101,9 @@ function createLineChart(chartID, title, input){
 		},
 		tooltip: {
 			formatter: function() {
-					return '<b>'+ this.series.name +'</b><br/>'+
-					Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
-					Highcharts.numberFormat(this.y, 2);
+				return '<b>'+ this.series.name +'</b><br/>'+
+				Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
+				Highcharts.numberFormat(this.y, 2);
 			}
 		},
 		legend: {
@@ -113,6 +113,21 @@ function createLineChart(chartID, title, input){
 			enabled: false
 		},
 		series: [{
+			name: 'Random data',
+			data: (function() {
+				// generate an array of random data
+				var data = [],
+				time = (new Date()).getTime(),
+				i;
+
+				for (i = -19; i <= 0; i++) {
+					data.push({
+						x: time + i * 1000,
+						y: Math.random()
+					});
+				}
+				return data;
+			})(),
 			name: 'tweets',
 			data: input
 		}]
@@ -143,23 +158,21 @@ function createBarChart(chartID, input){
 		xAxis: {
 			/* categories: ['Opinions'] */
 			labels: {
-                enabled: false
-            },			
-			lineColor: 'transparent',
-            gridLineColor: 'transparent',
-            //offset: -50,
+				enabled: false
+			},			
+			gridLineColor: 'transparent'
 		},
 		yAxis: {
 			min: 0,
             //offset: -50,
 			labels: {
-                enabled: false
-            },			
-            gridLineColor: 'transparent',			
+				enabled: false
+			},			
+			gridLineColor: 'transparent',			
 			title: {
 				text: ''
 			}
-			},
+		},
 		legend: {
 			backgroundColor: '#FFFFFF',
 			reversed: true
@@ -168,10 +181,10 @@ function createBarChart(chartID, input){
 			series: {
 				stacking: 'normal',	
 				dataLabels: {
-                    enabled: true,
-                    rotation: -45,
+					enabled: true,
+					rotation: -90,
 					useHTML: true,
-                    inside: true,
+					inside: true,
 					formatter: (function(){
 						return '<span style="transform:rotate(90deg);">' + this.series.name + '</span>' + '<br></br>' + '<span class="chartlabel">' + this.y + '</span>';
 					}),
@@ -179,9 +192,9 @@ function createBarChart(chartID, input){
 			},
 		},
 		colors: [
-		   '#ffd84e', 
-		   '#5ca6ff',
-		   '#ff8e4e'		   
+		'#ffd84e', 
+		'#5ca6ff',
+		'#ff8e4e'		   
 		],
         tooltip: {
             enabled: false
@@ -189,8 +202,8 @@ function createBarChart(chartID, input){
         legend: {
             enabled: false
         },
-		series: input;
-		/* [{
+		series: input,		
+		/*series: [{
 				name: 'No',
 				data: [52]
 			}, {
