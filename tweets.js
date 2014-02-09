@@ -41,9 +41,10 @@ module.exports = function(voteApp) {
 			vote_type = false;
 		}
 		// append the tweet to the result
-		if(determine == true){
+
 			voteApp.connection.query('INSERT INTO tweets (tweet_id, user_id, user_name, location, tweet, image, retweeted, vote_type) VALUES (' + tweet.id + ', ' + tweet.user.id + ', "' + tweet.user.name + '", "' + tweet.user.location + '", "' + tweet.text + '", "' + tweet.user.profile_image_url + '", ' + tweet.retweeted + ',' + vote_type + ')',
 				function(err) {
+					console.log(err);
 					if (err) {
 						console.log(err.code);
 						console.log(tweet.user.profile_image_url);
@@ -54,6 +55,6 @@ module.exports = function(voteApp) {
 						console.log('Row inserted');
 					}
 				});
-		}
+		
 	});
 }

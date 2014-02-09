@@ -144,7 +144,7 @@ voteApp.io.sockets.on('connection', function(client) {
 					}, function(err) {
 						console.log(err);
 					});
-				},30000);
+				},3000);
 			})
 			
 			client.on('addComment',function(data){
@@ -163,6 +163,8 @@ voteApp.io.sockets.on('connection', function(client) {
 			});
 		client.on('vote',function(data){
 			data.session = session;
+			console.log(data);
+
 			voteApp.api.vote(data).then(function(d){
 				console.log(d);
 			},function(err){
@@ -189,7 +191,7 @@ voteApp.connection.connect(function() {
 	voteApp.api.getTweets();
 	setInterval(function(){ voteApp.api.updateTweets() },60000);
 });
-// voteApp.tweets = require('./tweets.js')(voteApp)
+voteApp.tweets = require('./tweets.js')(voteApp)
 voteApp.io.sockets.on('disconnect', function(client) {
 	console.log('Disconected');
 	client.leave('users');

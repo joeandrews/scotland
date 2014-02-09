@@ -504,3 +504,9 @@ h3.intro-text {
     color: white !important;
     fill: white !important;
 }
+
+.charts {
+    position:absolute !important;
+    margin-top:-2em !important;
+    margin-top:0em !important;
+}
