@@ -447,3 +447,8 @@ a.source {
     font-weight: 900;
     letter-spacing: 1px;
 }
+
+.user-score {
+    float: left;
+    font-size: 15pt;
+}
