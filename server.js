@@ -32,10 +32,10 @@ voteApp.Session = require("connect").middleware.session.Session;
 voteApp.cookie = require("cookie");
 voteApp.RedisStore = require('connect-redis')(voteApp.express);
 voteApp.router = require("./router.js");
-voteApp.sessionStore = new voteApp.RedisStore({
-	client: voteApp.redis.createClient("6379", "127.0.0.1"),
-	port: ("6379")
-});
+//voteApp.sessionStore = new voteApp.RedisStore({
+//	client: voteApp.redis.createClient("6379", "127.0.0.1"),
+//	port: ("6379")
+//});
 voteApp.mysql = require('mysql');
 voteApp.io = require('socket.io');
 voteApp.api = require('./api.js')(voteApp);
