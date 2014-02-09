@@ -154,7 +154,7 @@ function createBarChart(chartID, input){
 			enabled: false
 		},
 		title: {
-			text: 'The Polls'
+			text: ' '
 		}, 
 		xAxis: {
 			/* categories: ['Opinions'] */
