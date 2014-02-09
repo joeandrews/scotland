@@ -410,8 +410,11 @@ a.source {
     text-decoration: underline;
 }
 
-</*.fact {
-    width: 40% !important; 
-    margin-right: 5% !important;
-    margin-left: 5% !important;
-}*/
+@media (min-width: 1200px){
+
+    .fact {
+        width: 40% !important; 
+        margin-right: 5% !important;
+        margin-left: 5% !important;
+    }
+}
