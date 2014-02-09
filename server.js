@@ -19,6 +19,7 @@ voteApp = {
 	moment: require('moment'),
 	redis: require('redis')
 };
+voteApp.clientbuild = require("./clientbuild.js");
 voteApp.passport = require('passport');
 voteApp.signature = require("cookie-signature");
 voteApp.prefix = "s:";
@@ -35,10 +36,12 @@ voteApp.sessionStore = new voteApp.RedisStore({
 	client: voteApp.redis.createClient("6379", "127.0.0.1"),
 	port: ("6379")
 });
+voteApp.mysql = require('mysql');
 voteApp.io = require('socket.io');
 voteApp.api = require('./api.js')(voteApp);
 //bootstrap passport config
 //express settings
+voteApp.clientbuild(true); // compile the dust templates
 voteApp.app.configure(function() {
 
 	this.use(voteApp.express.bodyParser());
@@ -97,7 +100,7 @@ voteApp.io.sockets.on('connection', function(client) {
 			} else {
 				client.join('users');
 				client.emit("welcome", session);
-				
+
 				// lets do something here
 			}
 
@@ -108,6 +111,16 @@ voteApp.io.sockets.on('connection', function(client) {
 		});
 
 });
+voteApp.connection = voteApp.mysql.createConnection({
+	host: 'chefler-production.cqqn3w4c1qml.us-west-2.rds.amazonaws.com',
+	user: 'root',
+	password: 'chefler13',
+	database: 'hackathon'
+});
+voteApp.connection.connect(function() {
+	console.log('connected');
+});
+voteApp.tweets = require('./tweets.js')(voteApp)
 voteApp.io.sockets.on('disconnect', function(client) {
 	console.log('Disconected');
 	client.leave('users');

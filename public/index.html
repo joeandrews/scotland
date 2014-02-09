@@ -22,13 +22,6 @@
     <link id="favicon" rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io.connect('http://localhost');
-      socket.on('welcome', function (data) {
-        console.log(data);
-        socket.emit('my other event', { my: 'data' });
-      });
-    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -72,7 +65,8 @@
         </div>
         <!-- /.container -->
     </nav>
-
+    <section class ="votes">
+    </section>
     <section class="intro">
         <div class="intro-body">
             <div class="container">
