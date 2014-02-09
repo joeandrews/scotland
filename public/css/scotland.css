@@ -429,3 +429,21 @@ a.source {
 .nav>li>a {
     padding: 10px 10px;
 }
+
+.submit-fact {
+    text-align: center;
+}
+
+.btn-default {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin: auto auto;
+    width: 50%;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+}

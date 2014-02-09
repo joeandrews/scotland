@@ -1,15 +1,15 @@
 $(function () {
-    $(document).ready(function() {
-        Highcharts.setOptions({
-            global: {
-                useUTC: false
-            }
-        });
+	$(document).ready(function() {
+		Highcharts.setOptions({
+			global: {
+				useUTC: false
+			}
+		});
 		
 		createLineChart('#tweetchart');
 		createBarChart('#opinionchart');
-    });
-    
+	});
+
 });
 
 function createLineChart(chartID){    
@@ -29,7 +29,7 @@ function createLineChart(chartID){
 					var series = this.series[0];
 					setInterval(function() {
 						var y = (new Date()).getTime(), // current time
-							x = Math.random();
+						x = Math.random();
 						series.addPoint([y, x], true, true);
 					}, 5000);
 				}
@@ -47,11 +47,11 @@ function createLineChart(chartID){
 		xAxis: {
 			type: 'datetime',
 			tickPixelInterval: 150,	
-            labels: {
-                style: {
-                    color: '#FFFFFF'
-                }
-            }
+			labels: {
+				style: {
+					color: '#FFFFFF'
+				}
+			}
 		},
 		yAxis: {
 			gridLineColor: '#FFFFFF',
@@ -62,11 +62,11 @@ function createLineChart(chartID){
 					color: '#FFFFFF',
 				}
 			},	
-            labels: {
-                style: {
-                    color: '#FFFFFF'
-                }
-            }
+			labels: {
+				style: {
+					color: '#FFFFFF'
+				}
+			}
 		},
 		plotOptions: {
 			series: {
@@ -75,9 +75,9 @@ function createLineChart(chartID){
 		},
 		tooltip: {
 			formatter: function() {
-					return '<b>'+ this.series.name +'</b><br/>'+
-					Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
-					Highcharts.numberFormat(this.y, 2);
+				return '<b>'+ this.series.name +'</b><br/>'+
+				Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
+				Highcharts.numberFormat(this.y, 2);
 			}
 		},
 		legend: {
@@ -91,8 +91,8 @@ function createLineChart(chartID){
 			data: (function() {
 				// generate an array of random data
 				var data = [],
-					time = (new Date()).getTime(),
-					i;
+				time = (new Date()).getTime(),
+				i;
 
 				for (i = -19; i <= 0; i++) {
 					data.push({
@@ -122,20 +122,20 @@ function createBarChart(chartID){
 		xAxis: {
 			/* categories: ['Opinions'] */
 			labels: {
-                enabled: false
-            },			
-            gridLineColor: 'transparent'
+				enabled: false
+			},			
+			gridLineColor: 'transparent'
 		},
 		yAxis: {
 			min: 0,
 			labels: {
-                enabled: false
-            },			
-            gridLineColor: 'transparent',			
+				enabled: false
+			},			
+			gridLineColor: 'transparent',			
 			title: {
 				text: ''
 			}
-			},
+		},
 		legend: {
 			backgroundColor: '#FFFFFF',
 			reversed: true
@@ -144,10 +144,10 @@ function createBarChart(chartID){
 			series: {
 				stacking: 'normal',	
 				dataLabels: {
-                    enabled: true,
-                    rotation: -45,
+					enabled: true,
+					rotation: -90,
 					useHTML: true,
-                    inside: true,
+					inside: true,
 					formatter: (function(){
 						return '<span style="transform:rotate(90deg);">' + this.series.name + '</span>' + '<br></br>' + '<span class="chartlabel">' + this.y + '</span>';
 					}),
@@ -155,16 +155,16 @@ function createBarChart(chartID){
 			},
 		},
 		colors: [
-		   '#ffd84e', 
-		   '#5ca6ff',
-		   '#ff8e4e'		   
+		'#ffd84e', 
+		'#5ca6ff',
+		'#ff8e4e'		   
 		],
-        tooltip: {
-            enabled: false
-        },
-        legend: {
-            enabled: false
-        },
+		tooltip: {
+			enabled: false
+		},
+		legend: {
+			enabled: false
+		},
 		series: [{
 			name: 'No',
 			data: [52]
@@ -175,5 +175,5 @@ function createBarChart(chartID){
 			name: 'Yes',
 			data: [33]
 		}]
-		});
+	});
 }
