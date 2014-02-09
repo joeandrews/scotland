@@ -190,7 +190,7 @@ module.exports = function(voteApp) {
 		},
 		getTweets: function(data) {
 			var deferred = Q.defer();
-			voteApp.connection.query('SELECT DATE_FORMAT(time,'+'\'%r\''+') AS time, tweet_count_for, tweet_count_against ' + 
+			voteApp.connection.query('SELECT UNIX_TIMESTAMP(time) AS time, tweet_count_for, tweet_count_against ' + 
  				  		  			 'FROM tweet_count ' +
  				          			 'ORDER BY time ASC ' +
  				         			 'LIMIT 100',
