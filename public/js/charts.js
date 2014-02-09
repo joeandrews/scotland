@@ -62,7 +62,7 @@ function createLineChart(chartID, title, input){
 			}, 
 			backgroundColor: 'transparent',
 			width: 400,
-			height:200
+			height:200,
 		},
 		title: {
 			text: title,				
@@ -119,12 +119,20 @@ function createLineChart(chartID, title, input){
 	});
 }
 
-function createBarChart(chartID){    
+function createBarChart(chartID, input){    
 	$(chartID).highcharts({
 		chart: {
 			type: 'bar',
 			backgroundColor: 'transparent',
-			showAxes: 'false'
+			showAxes: false,
+			events: {
+				load: function() {
+					var series = this.series[0];
+					setInterval(function() {
+						series.setData(input, true);
+					}, 5000);
+				}
+			}, 
 		},
 		credits: {
 			enabled: false
@@ -137,10 +145,13 @@ function createBarChart(chartID){
 			labels: {
                 enabled: false
             },			
-            gridLineColor: 'transparent'
+			lineColor: 'transparent',
+            gridLineColor: 'transparent',
+            //offset: -50,
 		},
 		yAxis: {
 			min: 0,
+            //offset: -50,
 			labels: {
                 enabled: false
             },			
@@ -178,7 +189,8 @@ function createBarChart(chartID){
         legend: {
             enabled: false
         },
-		series: [{
+		series: input;
+		/* [{
 				name: 'No',
 				data: [52]
 			}, {
@@ -187,6 +199,6 @@ function createBarChart(chartID){
 			}, {
 				name: 'Yes',
 				data: [33]
-			}]
+			}] */
 		});
 }
