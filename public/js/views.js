@@ -63,8 +63,10 @@ window.voteAppViews = {
 			this.render();
 		},
 		render: function() {
-			
+			console.log(this.$el);
+			console.log(this.$el.parent());
 			dust.render('comment', this.model.attributes, function(err, out) {
+				console.log(err,out);
 				this.$el.append(out);
 
 

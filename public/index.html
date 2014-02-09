@@ -58,17 +58,30 @@
             $(".btn-group > .btn").removeClass("active");
             $(this).addClass("active");
         });
-    });
-    </script>
 
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-42735744-4', 'scottishreferendum.info');
-  ga('send', 'pageview');
-  </script>
+        $("#yes-menu li a").click(function(){
+
+            $("#yes-toggle:first-child").text($(this).text());
+            $("#yes-toggle:first-child").val($(this).text());
+        });
+
+        $("#no-menu li a").click(function(){
+
+            $("#no-toggle:first-child").text($(this).text());
+            $("#no-toggle:first-child").val($(this).text());
+        });
+
+    });
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-42735744-4', 'scottishreferendum.info');
+ga('send', 'pageview');
+</script>
 
 </head>
 
@@ -136,23 +149,24 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">
-                         <div class="chart" id="tweetchart"><div>
-                         </h1>
-                         <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
-                         <div class="page-scroll">
+                           <div class="chart" id="tweetchart"><div>
+                           </h1>
+                           <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
+                           <div class="page-scroll">
 
                             <div class="btn-group btn-group-lg">
                                 <button id='yesVote' type="button" class="btn btn-default">YES</button>
                                 <button id='noVote' type="button" class="btn btn-default">NO</button>
+
                             </div>
 
                             <h1 class="chart-container">
-                               <div class="chart" id="tweetchartyes"></div>
-                               <div class="chart" id="tweetchartno"></div>
-                               <div class="chart" id="opinionchart"></div>
-                           </h1>
-                           <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
-                           <div class="page-scroll">
+                             <div class="chart col-lg-6 col-md-6" id="tweetchartyes"></div>
+                             <div class="chart col-lg-6 col-md-6" id="tweetchartno"></div>
+                             <div class="chart" id="opinionchart"></div>
+                         </h1>
+                         <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
+                         <div class="page-scroll">
                             <a href="#defence" class="btn btn-circle">
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
@@ -164,7 +178,7 @@
     </section>
     <div class="container">
 
-     <div class="row" id="defence">
+       <div class="row" id="defence">
 
         <div class="col-lg-12">
             <h1 class="page-header defence-header">Defence <i class="fa fa-toggle-down"></i>
@@ -176,17 +190,27 @@
     </div>
     <div class="subsection defence-subsection">
         <div class="row">
-            <h3>Nuclear</h3>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
 
                 <h3>Yes</h3>
+
                 <p>Removing nuclear weapons and maintaining defence forces appropriate to Scotland's circumstances could save a significant proportion of the defense budget.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://www.yesscotland.net/answers?text=&issue=4" target=_blank>Scotland's Future</a></i>)</p>
+
+                <p>The current Scottish Government supports continued membership of NATO, albeit with the significant caveat that membership should not require retention of nuclear weapons in Scotland.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Yes Scotland</a></i>)</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>No</h3>
+                
                 <p>Scotland would be "safer" within the UK, and that defence jobs would be lost in Scotland if Trident was removed.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://bettertogether.net/pages/the-ve-case" target=_blank>Better Together</a></i>)</p>
+
+                <p>Little information has been offered giving any detailed reassurance about the survival of Scotland’s defence industry in a potentially independent Scotland.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://scotspolitics.com/holyrood/what-are-snp-plans-to-protect-scottish-defence-jobs" target=_blank>Executive Chairman of the Scotland Institute</a></i>)</p>
+
             </div>
         </div>
     </div>
@@ -207,14 +231,19 @@
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>Yes</h3>
                 <p>Scottish Government have pledged to abolish the bedroom tax and Universal Credit.</p>
-                <p>(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
+                <p>The UK is now one of ten least equal countries in the OECD – it ranks 28th out of 34 on a measure of overall inequality.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>No</h3>
 
                 <p>Scotland gets more benefits spend per head than the rest of the UK and there is no plan to guarentee benefit payments after independence.</p>
-                <p>(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
+                <p class="source">(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
+
+                <p>To genuinely aspire to the Nordic model of childcare cost/labour market participation, tax as a share of GDP would have to rise.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://stucbetterway.blogspot.co.uk/2013/11/scottish-governments-white-paper.html" target=_blank>STUC's Deputy General Secretary</a></i>)</p>
             </div>
 
         </div>
@@ -241,6 +270,10 @@
                 <h3>Yes</h3>
 
                 <p>Scottish students will continue to receive free access to universities in Scotland.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future</a></i>)</p>
+
+                <p>An independent Scotland would seek to continue to share research councils with the remainder of the UK.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future</a></i>)</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
@@ -248,6 +281,10 @@
                 <h3>No</h3>
 
                 <p>At present Scotland does proportionately well from the UK research spending allocation. Scotland has 8% of UK GDP, but get 13% of research funding pot.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://www.futureukandscotland.ac.uk/blog/event-blog-higher-education-and-independence" target=_blank>Future of UK and Scotland</a></i>)</p>
+
+                <p>Scotland could be faced with a legal challenge if it continued to charge students from the rest of of the UK.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://www.timeshighereducation.co.uk/news/state-of-independence-could-prove-costly-scots-warned/2004011.article" target=_blank>Future of UK and Scotland</a></i>)</p>
             </div>
 
         </div>
@@ -271,32 +308,25 @@
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>Yes</h3>
 
-                <p>Scottish government have pledged to reverse key aspects of the Welfare Reform Act 2012</p>
+                <p>NHS Scotland has been independently run by the Scottish Parliament since devolution in 1999.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
+
+                <p>Under the current Scottish Government, NHS staffing has increased by 5 per cent overall and by 1.5 per cent in the last year. There are now over 1,000 extra qualified nurses and midwives and over 1,500 more doctors working in our health service.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
                 <h3>No</h3>
 
                 <p>Scotland gets more benefits spend per head than the rest of the UK and there is no plan to guarentee benefit payments after independence.</p>
-                <p>(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-6 col-md-6 portfolio-item fact">
-                <h3>Yes</h3>
-
-                <p>Under the current Scottish Government, NHS staffing has increased by 5 per cent overall and by 1.5 per cent in the last year. There are now over 1,000 extra qualified nurses and midwives and over 1,500 more doctors working in our health service.</p>
-            </div>
-
-            <div class="col-lg-6 col-md-6 portfolio-item fact">
-
-                <h3>No</h3>
-
+                <p class="source">(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
+            
                 <p>There are a lot of uncertainties about the clinical research system in terms of how it would be funded and governed.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://www.futureukandscotland.ac.uk/blog/white-paper-reflections-%E2%80%93-health-and-clinical-research" target=_blank>Better Together</a></i>)</p>
             </div>
         </div>
+
+        
     </div>
 
     <div class="row" id="economy">
@@ -318,8 +348,10 @@
 
                 <h3>Yes</h3>
                 <p>Remaining with British Sterling is viewed as the best option.</p>
-                <p>(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
 
+                <p>Scottish Government have pledged to abolish the bedroom tax and Universal Credit.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://82.113.138.107/00439021.pdf" target=_blank>Scotland's Future - Scottish Government</a></i>)</p>
             </div>
 
             <div class="col-lg-6 col-md-6 portfolio-item fact">
@@ -327,6 +359,10 @@
                 <h3>No</h3>
 
                 <p>An independent Scotland would need to raise taxes, cut spending, or both, to create a sustainable economy over the next 50 years. </p>
+                <p class="source">(<i>Source: <a class="source" href="http://www.ifs.org.uk/bns/bn135.pdf" target=_blank>Institute for Fiscal Studies</a></i>)</p>
+
+                <p>Scotland's share of the UK debt on independence could be £146 billion, based on its 8.4% share of the UK's population.</p>
+                <p class="source">(<i>Source: <a class="source" href="http://niesr.ac.uk/publications/scotland-currency-options-and-public-debt#.Uva1c0LJ6Vs" target=_blank> National Institute of Economic and Social Research (NIESR)</a></i>)</p>
             </div>
 
         </div>
@@ -355,11 +391,11 @@
                 <button type="button" class="btn btn-default">Sort by</button>
 
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      Dropdown
+                    <button type="button" class="btn btn-default dropdown-toggle" id ="yes-toggle" data-toggle="dropdown">
+                        Best
                       <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu" id ="yes-menu" >
                       <li><a href="#yes-user-sorting">Best</a></li>
                       <li><a href="#yes-user-sorting">Latest</a></li>
                   </ul>
@@ -374,11 +410,11 @@
             <button type="button" class="btn btn-default">Sort by</button>
 
             <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  Dropdown
+                <button type="button" class="btn btn-default dropdown-toggle" id ="no-toggle" data-toggle="dropdown">
+                  Best
                   <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" id ="no-menu">
                   <li><a href="#yes-user-sorting">Best</a></li>
                   <li><a href="#yes-user-sorting">Latest</a></li>
               </ul>
@@ -398,8 +434,10 @@
 
     <ulclass="col-lg-6 col-md-6 portfolio-item user-fact" id='againstComments'>
 
+
       
     </ul>
+
 
 </div>
 

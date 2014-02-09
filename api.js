@@ -104,11 +104,9 @@ module.exports = function(voteApp) {
 				redisEval(patterns).then(function(values) {
 					for (var i = 0; i < values[0].length; i++) {
 						values[0][i] = JSON.parse(values[0][i]);
-
 					};
 					for (var i = 0; i < values[1].length; i++) {
 						values[1][i] = JSON.parse(values[1][i]);
-
 					};
 					deferred.resolve(values);
 				}, function(err) {
@@ -126,7 +124,6 @@ module.exports = function(voteApp) {
 				redisEval(patterns).then(function(values) {
 					for (var i = 0; i < values[0].length; i++) {
 						values[0][i] = JSON.parse(values[0][i]);
-
 					};
 					for (var i = 0; i < values[1].length; i++) {
 						values[1][i] = JSON.parse(values[1][i]);

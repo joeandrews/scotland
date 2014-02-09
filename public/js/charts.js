@@ -23,9 +23,6 @@ function createLineChart(chartID, title, input){
 			events: {
 				load: function() {
 					var series = this.series[0];
-					setInterval(function() {
-						series.setData(input, true);
-					}, 5000);
 				}
 			}, 
 			backgroundColor: 'transparent',
@@ -64,7 +61,8 @@ function createLineChart(chartID, title, input){
 		},
 		plotOptions: {
 			series: {
-				color: '#FFFFFF'
+				color: '#FFFFFF',
+				marker: {radius:0}
 			}
 		},
 		tooltip: {

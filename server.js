@@ -107,10 +107,12 @@ voteApp.io.sockets.on('connection', function(client) {
 						count.userCount = u;
 						return voteApp.api.getTimeComments();
 					}).then(function(tc) {
+						console.log(tc);
 						count.timeComments = tc;
 						return voteApp.api.getLatestComments();
 					})
 					.then(function(lc) {
+						console.log(lc);
 						count.popComments = lc;
 						return voteApp.api.getTweets();
 					}).then(function(tweets){

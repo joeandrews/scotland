@@ -1,0 +1,3 @@
+ <h3>{type}</h3>
+<div class="user-score"><h1>{score}</h2></div><p>{text}</p>
+<div class="user-fact-time"><p>{date}</p></div>

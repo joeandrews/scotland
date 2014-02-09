@@ -14,8 +14,8 @@ window.socket = function() {
          socket:this,
 		 model: models.userCount
 		});
-        collections.forComments = new window.voteAppCollections.forComments(data.popComments[1]);
-        collections.againstComments = new window.voteAppCollections.againstComments(data.popComments[1]);
+        collections.forComments = new window.voteAppCollections.forComments(data.popComments[1]).render();
+        collections.againstComments = new window.voteAppCollections.againstComments(data.popComments[1]).render();
         $('#tweetchartyes').html('')
          $('#tweetchartno').html('')
         createLineChart('#tweetchartyes', "Yes Camp", data.tweets[0]);
