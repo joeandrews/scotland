@@ -70,12 +70,7 @@ function createLineChart(chartID){
 		},
 		plotOptions: {
 			series: {
-				color: '#FFFFFF',				
-                groupPadding: 5, 
-				dataLabels: {
-                    enabled: true,
-                    inside: true,
-				}
+				color: '#FFFFFF'
 			}
 		},
 		tooltip: {
@@ -147,21 +142,38 @@ function createBarChart(chartID){
 		},
 		plotOptions: {
 			series: {
-				stacking: 'normal'
+				stacking: 'normal',	
+				dataLabels: {
+                    enabled: true,
+                    rotation: -45,
+					useHTML: true,
+                    inside: true,
+					formatter: (function(){
+						return '<span style="transform:rotate(90deg);">' + this.series.name + '</span>' + '<br></br>' + '<span class="chartlabel">' + this.y + '</span>';
+					}),
+				}
 			},
-			dataLables: {
-				inside: true
-			}
 		},
+		colors: [
+		   '#ffd84e', 
+		   '#5ca6ff',
+		   '#ff8e4e'		   
+		],
+        tooltip: {
+            enabled: false
+        },
+        legend: {
+            enabled: false
+        },
 		series: [{
-			name: 'Yes',
-			data: [33]
+			name: 'No',
+			data: [52]
 		}, {
 			name: 'Undecided',
 			data: [15]
 		}, {
-			name: 'No',
-			data: [52]
+			name: 'Yes',
+			data: [33]
 		}]
 		},
         function(chart){       		
