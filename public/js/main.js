@@ -2,7 +2,7 @@ var socket = function() {
 
 	var socket = io.connect('http://localhost:8081');
 	socket.on("welcome", function(data) {
-		
+		console.log(data);
 		var users = new window.voteAppViews.votes({
 		 el: ".votes",
 		 template: "votes",

@@ -32,10 +32,10 @@ voteApp.Session = require("connect").middleware.session.Session;
 voteApp.cookie = require("cookie");
 voteApp.RedisStore = require('connect-redis')(voteApp.express);
 voteApp.router = require("./router.js");
-//voteApp.sessionStore = new voteApp.RedisStore({
-//	client: voteApp.redis.createClient("6379", "127.0.0.1"),
-//	port: ("6379")
-//});
+voteApp.sessionStore = new voteApp.RedisStore({
+	client: voteApp.redis.createClient("6379", "127.0.0.1"),
+	port: ("6379")
+});
 voteApp.mysql = require('mysql');
 voteApp.io = require('socket.io');
 voteApp.api = require('./api.js')(voteApp);
@@ -93,6 +93,7 @@ voteApp.io.sockets.on('connection', function(client) {
 
 	voteApp.auth.update_Session(hs, session)
 		.then(function(d) {
+			console.log(d);
 			if (!session.passport) client.join('users');
 			var count = {};
 			voteApp.api.forCount().then(function(f) {
@@ -101,8 +102,12 @@ voteApp.io.sockets.on('connection', function(client) {
 			}).then(function(a) {
 				count.againstCount = a;
 				return voteApp.api.userCount();
-			}).then(function(u) {
+
+			}).then(function(u){
 				count.userCount = u;
+				return voteApp.api.getComments(data)
+			}).then(function(u) {
+				count.comments = u;
 				client.emit("welcome", count);
 			}, function(err) {
 				console.log(err);
@@ -115,6 +120,23 @@ voteApp.io.sockets.on('connection', function(client) {
 		});
 
 });
+voteApp.sockets.on('addComment',function(data){
+	console.log(data);
+	voteApp.api.addComment(data).then(function(d){
+		console.log(d);
+	},function(err){
+
+	});
+});
+voteApp.sockets.on('voteComment',function(data){
+	console.log(data);
+	voteApp.api.voteComment(data).then(function(d){
+		console.log(d);
+	},function(err){
+		console.log(err);
+	});
+});
+
 voteApp.connection = voteApp.mysql.createConnection({
 	host: 'chefler-production.cqqn3w4c1qml.us-west-2.rds.amazonaws.com',
 	user: 'root',
