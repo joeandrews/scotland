@@ -175,13 +175,5 @@ function createBarChart(chartID){
 			name: 'Yes',
 			data: [33]
 		}]
-		},
-        function(chart){       		
-			chart.renderer.text('Yes', 0, 0)
-				.css({
-					color: '#4572A7',
-					fontSize: '16px'
-				})
-				.add();		
 		});
 }
