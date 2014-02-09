@@ -468,3 +468,6 @@ a.source {
     min-width: 130px;
     top: 70%;
 }
+.yes-latest {
+    display: none;
+}
