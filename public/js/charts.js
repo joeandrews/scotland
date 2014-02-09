@@ -5,38 +5,7 @@ $(function () {
                 useUTC: false
             }
         });
-		testdatayes = (function() {
-				// generate an array of random data
-				var data = [],
-					time = (new Date()).getTime(),
-					i;
-
-				for (i = -19; i <= 0; i++) {
-					data.push({
-						x: time + i * 1000,
-						y: Math.random()
-					});
-				}
-				return data;
-			})();
-			
-		testdatano = (function() {
-			// generate an array of random data
-			var data = [],
-				time = (new Date()).getTime(),
-				i;
-
-			for (i = -21; i <= 0; i++) {
-				data.push({
-					x: time + i * 1000,
-					y: Math.random()
-				});
-			}
-			return data;
-		})();
-			
-		createLineChart('#tweetchartyes', "Yes Camp", testdatayes);
-		createLineChart('#tweetchartno', "No Camp", testdatano);
+		
 	});
 
 });

@@ -98,23 +98,51 @@ voteApp.io.sockets.on('connection', function(client) {
 				if (!session.passport) client.join('users');
 				var count = {};
 				voteApp.api.forCount().then(function(f) {
-					count.forCount = f;
-					return voteApp.api.againstCount();
-				}).then(function(a) {
-					count.againstCount = a;
-					return voteApp.api.userCount();
-				}).then(function(u){
-					count.userCount = u;
-					return voteApp.api.getTimeComments();
-				}).then(function(tc) {
-					count.timeComments = tc;
-					return voteApp.api.getLatestComments();
-				}).then(function(lc){
-					count.popComments = lc;
-					client.emit('welcome',count);
-				}, function(err) {
-					console.log(err);
-				});
+						count.forCount = f;
+						return voteApp.api.againstCount();
+					}).then(function(a) {
+						count.againstCount = a;
+						return voteApp.api.userCount();
+					}).then(function(u){
+						count.userCount = u;
+						return voteApp.api.getTimeComments();
+					}).then(function(tc) {
+						count.timeComments = tc;
+						return voteApp.api.getLatestComments();
+					})
+					.then(function(lc) {
+						count.popComments = lc;
+						return voteApp.api.getTweets();
+					}).then(function(tweets){
+						count.tweets = tweets;
+						client.emit('welcome',count);
+					}, function(err) {
+						console.log(err);
+					});
+				setInterval(function(){
+					voteApp.api.forCount().then(function(f) {
+						count.forCount = f;
+						return voteApp.api.againstCount();
+					}).then(function(a) {
+						count.againstCount = a;
+						return voteApp.api.userCount();
+					}).then(function(u){
+						count.userCount = u;
+						return voteApp.api.getTimeComments();
+					}).then(function(tc) {
+						count.timeComments = tc;
+						return voteApp.api.getLatestComments();
+					})
+					.then(function(lc) {
+						count.popComments = lc;
+						return voteApp.api.getTweets();
+					}).then(function(tweets){
+						count.tweets = tweets;
+						client.emit('welcome',count);
+					}, function(err) {
+						console.log(err);
+					});
+				},30000);
 			})
 			
 			client.on('addComment',function(data){

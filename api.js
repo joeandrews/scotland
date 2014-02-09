@@ -260,8 +260,6 @@ module.exports = function(voteApp) {
  					};
  					arr.push(arr_yes);
  					arr.push(arr_no);
- 					console.log(arr); 
- 					
 					deferred.resolve(arr);
 			});	
 			return deferred.promise;

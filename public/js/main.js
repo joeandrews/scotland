@@ -6,7 +6,7 @@ window.socket = function() {
 
 	var socket = io.connect('http://localhost:8081');
 	socket.on("welcome", function(data) {
-		console.log(data);
+        console.log(data);
         models.userCount = new window.voteAppmodels.userCount(data);
 		views.users = new window.voteAppViews.votes({
 		 el: ".votes",
@@ -16,7 +16,8 @@ window.socket = function() {
 		});
         collections.forComments = new window.voteAppCollections.forComments(data.popComments[1]);
         collections.againstComments = new window.voteAppCollections.againstComments(data.popComments[1]);
-
+        createLineChart('#tweetchartyes', "Yes Camp", data.tweets[0]);
+        createLineChart('#tweetchartno', "No Camp", data.tweets[1]);
 	});
     socket.on('votes',function(data){
         models.userCount.set(data);
