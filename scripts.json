@@ -1,0 +1,7 @@
+{
+    "scripts": [
+    	"public/js/dust.js",
+   		"public/js/votes.js",
+    	"public/js/main.js"],
+    "target": "public/js/votApp.min.js"
+ }

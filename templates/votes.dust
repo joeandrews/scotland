@@ -1,0 +1,7 @@
+<div class="container">
+        <div class="row chart">
+          <div class="col-md-4 for">{for}</div>
+          <div class="col-md-4 neutral"></div>
+          <div class="col-md-4 against">{against}</div>
+    </div>              
+</div>
