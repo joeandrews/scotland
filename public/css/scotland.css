@@ -389,6 +389,7 @@ img .example {
 
 .page-header {
     text-align: center;
+    padding-top: 15px;
 }
 
 .portfolio-item {
@@ -406,8 +407,12 @@ img .example {
     margin-bottom: 20px;
 }
 
-a.source {
+.source a {
     text-decoration: underline;
+}
+
+.source {
+    font-size: 10pt;
 }
 
 @media (min-width: 1200px){
