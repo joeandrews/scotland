@@ -6,19 +6,20 @@ $(function () {
             }
         });
 		
-		createChart('#tweetchart');
+		createLineChart('#tweetchart');
+		createBarChart('#opinionchart');
     });
     
 });
 
-function createChart(chartID){    
+function createLineChart(chartID){    
 	var chart;
 	$(chartID).highcharts({
 		credits: {
 			enabled: false
 		},
 		chart: {
-			type: 'spline',
+			type: 'column',
 			animation: Highcharts.svg, // don't animate in old IE
 			marginRight: 1,
 			events: {
@@ -66,15 +67,15 @@ function createChart(chartID){
                     color: '#FFFFFF'
                 }
             }
-			/* plotLines: [{
-				value: 0,
-				width: 1,
-				color: '#FFFFFF'
-			}] */
 		},
 		plotOptions: {
 			series: {
-				color: '#FFFFFF'
+				color: '#FFFFFF',				
+                groupPadding: 5, 
+				dataLabels: {
+                    enabled: true,
+                    inside: true,
+				}
 			}
 		},
 		tooltip: {
@@ -108,4 +109,67 @@ function createChart(chartID){
 			})()
 		}]
 	});
+}
+
+function createBarChart(chartID){    
+	$(chartID).highcharts({
+		chart: {
+			type: 'bar',
+			backgroundColor: 'transparent',
+			showAxes: 'false'
+		},
+		credits: {
+			enabled: false
+		},
+		title: {
+			text: 'The Polls'
+		}, 
+		xAxis: {
+			/* categories: ['Opinions'] */
+			labels: {
+                enabled: false
+            },			
+            gridLineColor: 'transparent'
+		},
+		yAxis: {
+			min: 0,
+			labels: {
+                enabled: false
+            },			
+            gridLineColor: 'transparent',			
+			title: {
+				text: ''
+			}
+			},
+		legend: {
+			backgroundColor: '#FFFFFF',
+			reversed: true
+		},
+		plotOptions: {
+			series: {
+				stacking: 'normal'
+			},
+			dataLables: {
+				inside: true
+			}
+		},
+		series: [{
+			name: 'Yes',
+			data: [33]
+		}, {
+			name: 'Undecided',
+			data: [15]
+		}, {
+			name: 'No',
+			data: [52]
+		}]
+		},
+        function(chart){       		
+			chart.renderer.text('Yes', 0, 0)
+				.css({
+					color: '#4572A7',
+					fontSize: '16px'
+				})
+				.add();		
+		});
 }
