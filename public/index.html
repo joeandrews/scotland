@@ -19,9 +19,38 @@
 
     <!-- Custom Theme CSS -->
     <link href="css/scotland.css" rel="stylesheet">
+    <link href="css/charts.css" rel="stylesheet">
     <link id="favicon" rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+        <script src="js/backbone.js"></script>
+
+    <script src="js/voteApp.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script language="javascript" type="text/javascript">
+
+    $(document).ready(function() 
+    {
+        $(".fact").hide();
+  //toggle the component with class msg_body
+  $(".subsection").click(function()
+  {
+    $(this).nextAll().slice(0, 2).slideToggle(500);
+});
+});
+    </script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-42735744-4', 'scottishreferendum.info');
+  ga('send', 'pageview');
+  </script>
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -45,19 +74,34 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#defence">Defence</a>
+                        <a href="#defence">                
+                            <img src="img/defence.png"/ class="nav-icon">
+                            Defence
+                        </a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#socialpolicy">Social Policy</a>
+                        <a href="#socialpolicy">
+                            <img src="img/social.png"/ class="nav-icon">
+                            Social Policy
+                        </a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#education">Education</a>
+                        <a href="#education">
+                            <img src="img/education.png"/ class="nav-icon">
+                            Education
+                        </a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#health">Health</a>
+                        <a href="#health">
+                            <img src="img/health.png"/ class="nav-icon">
+                            Health
+                        </a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#economy">Economy</a>
+                        <a href="#economy">
+                            <img src="img/economy.png"/ class="nav-icon">
+                            Economy
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -72,7 +116,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Charts Go Here</h1>
+                        <h1 class="brand-heading">
+                         <div class="chart" id="tweetchart"><div>
+                         </h1>
+                         <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
+                         <div class="page-scroll">
+                        <h1 class="chart-container">
+							<div class="chart" id="tweetchart"></div>
+							<div class="chart" id="opinionchart"></div>
+						</h1>
                         <!--<p class="intro-text">You don't need to be a good artist to be a <em>great</em> designer.</p>-->
                         <div class="page-scroll">
                             <a href="#defence" class="btn btn-circle">
@@ -99,15 +151,15 @@
 
         <div class="row">
 
-            <h3 class="subsection">Nuclear Weapons</h3>
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <h3 class="subsection">Nuclear Weapons <i class="fa fa-toggle-down"></i></h3>
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-
+                <h3>Yes</h3>
                 <p>Removing nuclear weapons and maintaining defence forces appropriate to Scotland's circumstances could save a significant proportion of the defense budget.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
-
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>No</h3>
                 <p>Scotland would be "safer" within the UK, and that defence jobs would be lost in Scotland if Trident was removed.</p>
             </div>
 
@@ -125,34 +177,36 @@
         </div>
 
         <div class="row">
-            <h3 class="subsection">Welfare</h3>
+            <h3 class="subsection">Welfare <i class="fa fa-toggle-down"></i></h3>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>Yes</h3>
 
                 <p>Scottish government have pledged to reverse key aspects of the Welfare Reform Act 2012</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>No</h3>
 
-                <p>Scotland gets more benefits spend per head than the rest of the UK and there is no plan to guarentee benefit payments after indepence.</p>
-                <p>(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf">Better Together</a></i>)</p>
+                <p>Scotland gets more benefits spend per head than the rest of the UK and there is no plan to guarentee benefit payments after independence.</p>
+                <p>(<i>Source: <a class="source" href="http://b.3cdn.net/better/7ff372393015d9315e_iim6v47wx.pdf" target=_blank>Better Together</a></i>)</p>
             </div>
 
         </div>
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-five">Project Five</a>
-                </h3>
+                <h3>Yes</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-six">Project Six</a>
-                </h3>
+                <h3>No</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
@@ -172,112 +226,110 @@
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-one">Project One</a>
-                </h3>
+                <h3>Yes</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
-            <div class="col-lg-6 col-md-6 portfolio-item">
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
 
-                <h3><a href="#project-two">Project Two</a>
-                </h3>
+                <h3>No</h3>
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 
         </div>
 
-        <div class="container">
+        <div class="row" id="health">
 
-            <div class="row" id="health">
-
-                <div class="col-lg-12">
-                    <h1 class="page-header">Health
-                    </h1>
-                    <img src="img/health.png"/ class="section-icon">
-
-                </div>
+            <div class="col-lg-12">
+                <h1 class="page-header">Health
+                </h1>
+                <img src="img/health.png"/ class="section-icon">
 
             </div>
 
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+                <h3>Yes</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+
+                <h3>No</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+
+        </div>
+
+        <div class="row" id="economy">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Economy
+                </h1>
+                <img src="img/economy.png"/ class="section-icon">
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+
+                <h3>Yes</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 portfolio-item fact">
+
+                <h3>No</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+
+        </div>
+
+
+        <hr>
+
+        <hr>
+
+        <footer>
             <div class="row">
-
-                <div class="col-lg-6 col-md-6 portfolio-item">
-
-                    <h3><a href="#project-one">Project One</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Company 2013</p>
                 </div>
-
-                <div class="col-lg-6 col-md-6 portfolio-item">
-
-                    <h3><a href="#project-two">Project Two</a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                </div>
-
             </div>
+        </footer>
 
-            <div class="container">
+    </div>
 
-                <div class="row" id="economy">
+    <!-- Core JavaScript Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Economy
-                        </h1>
-                        <img src="img/economy.png"/ class="section-icon">
+    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
-                    </div>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/scotland.js"></script>
 
-                </div>
+    <!-- Chart library -->			
+    <script src="js/charts.js"></script>
 
-                <div class="row">
-
-                    <div class="col-lg-6 col-md-6 portfolio-item">
-
-                        <h3><a href="#project-one">Project One</a>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 portfolio-item">
-
-                        <h3><a href="#project-two">Project Two</a>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                    </div>
-
-                </div>
-
-
-                <hr>
-
-                <hr>
-
-                <footer>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>Copyright &copy; Company 2013</p>
-                        </div>
-                    </div>
-                </footer>
-
-            </div>
-
-            <!-- Core JavaScript Files -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-            <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
-            <!-- Custom Theme JavaScript -->
-            <script src="js/scotland.js"></script>
-
-        </body>
-
+</body>
 
 </html>
 

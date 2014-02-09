@@ -1,7 +1,14 @@
 {
-    "scripts": [
-    	"public/js/dust.js",
-   		"public/js/votes.js",
-    	"public/js/main.js"],
-    "target": "public/js/votApp.min.js"
- }
+	"scripts": [
+    "public/js/jquery-1.10.2.js",
+		"public/js/dust.js",
+
+    "public/js/underscore.js",
+    "public/js/backbone.js",
+		"public/js/views.js",
+    "public/js/votes.js",
+		"public/js/models.js",
+		"public/js/main.js"
+	],
+	"target": "public/js/voteApp.min.js"
+}

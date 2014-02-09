@@ -29,7 +29,7 @@
     "moment": "~2.4.0",
     "redis": "~0.10.0",
     "socket.io": "~0.9.16",
-    "dustjs-linkedin": "~2.3.3",
+    "dustjs-linkedin": "2.1.*",
     "uglify-js2": "~2.1.11",
     "mysql": "~2.0.1"
   },

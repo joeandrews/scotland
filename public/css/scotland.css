@@ -409,3 +409,23 @@ img .example {
 a.source {
     text-decoration: underline;
 }
+
+@media (min-width: 1200px){
+
+    .fact {
+        width: 40% !important; 
+        margin-right: 5% !important;
+        margin-left: 5% !important;
+    }
+}
+
+.nav-icon {
+    display: block;
+    max-width: 20px !important;
+    float: left;
+    margin-right: 5px;
+}
+
+.nav>li>a {
+    padding: 10px 10px;
+}

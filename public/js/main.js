@@ -1,13 +1,20 @@
-var socket = (function(){
+var socket = function() {
 
-    var socket = io.connect('http://localhost:8081');
-    socket.emit("");
-    socket.on("welcome",function(data){
-       var votes = new window.fuuzikviews.header({
-        
-       })
-        
-    });
-    return socket;
+	var socket = io.connect('http://localhost:8081');
+	socket.on("welcome", function(data) {
+		
+		var users = new window.voteAppViews.votes({
+		 el: ".votes",
+		 template: "votes",
+         socket:this,
+		 model: new window.voteAppmodels.userCount(data)
+		});
 
-})()
+	});
+	return socket;
+
+}
+
+$(document).ready(function(){
+    socket = socket();
+});

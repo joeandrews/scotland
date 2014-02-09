@@ -93,16 +93,20 @@ voteApp.io.sockets.on('connection', function(client) {
 
 	voteApp.auth.update_Session(hs, session)
 		.then(function(d) {
-			if (session.passport.user) {
-				//join room
-				client.emit("welcomeBack", session);
-
-			} else {
-				client.join('users');
-				client.emit("welcome", session);
-
-				// lets do something here
-			}
+			if (!session.passport) client.join('users');
+			var count = {};
+			voteApp.api.forCount().then(function(f) {
+				count.forCount = f;
+				return voteApp.api.againstCount();
+			}).then(function(a) {
+				count.againstCount = a;
+				return voteApp.api.userCount();
+			}).then(function(u) {
+				count.userCount = u;
+				client.emit("welcome", count);
+			}, function(err) {
+				console.log(err);
+			});
 
 		}, function(e) {
 			socket.emit("nosession", {
@@ -122,7 +126,7 @@ voteApp.connection.connect(function() {
 	voteApp.api.getTweets();
 	setInterval(function(){ voteApp.api.updateTweets() },60000);
 });
-voteApp.tweets = require('./tweets.js')(voteApp)
+// voteApp.tweets = require('./tweets.js')(voteApp)
 voteApp.io.sockets.on('disconnect', function(client) {
 	console.log('Disconected');
 	client.leave('users');
