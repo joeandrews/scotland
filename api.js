@@ -93,9 +93,23 @@ module.exports = function(voteApp) {
 
 			return deferred.promise;
 		},
-		getComments:function(){
+		getTimeComments:function(){
 			var deferred = Q.defer();
-			var script = fs.readFileSync(__dirname + '/lua/getComments.lua', 'utf8');
+			var script = fs.readFileSync(__dirname + '/lua/getTimeComments.lua', 'utf8');
+				var patterns = [script, '0'];
+				var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
+				redisEval(patterns).then(function(values) {
+					deferred.resolve(values);
+				}, function(err) {
+					console.log(err);
+					deferred.reject(err);
+				});
+			return deferred.promise;
+
+		},
+		getLatestComments:function(){
+			var deferred = Q.defer();
+			var script = fs.readFileSync(__dirname + '/lua/getLatest.lua', 'utf8');
 				var patterns = [script, '0'];
 				var redisEval = Q.nbind(voteApp.client.eval, voteApp.client);
 				redisEval(patterns).then(function(values) {
