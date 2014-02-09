@@ -16,6 +16,8 @@ window.socket = function() {
 		});
         collections.forComments = new window.voteAppCollections.forComments(data.popComments[1]);
         collections.againstComments = new window.voteAppCollections.againstComments(data.popComments[1]);
+        $('#tweetchartyes').html('')
+         $('#tweetchartno').html('')
         createLineChart('#tweetchartyes', "Yes Camp", data.tweets[0]);
         createLineChart('#tweetchartno', "No Camp", data.tweets[1]);
 	});
